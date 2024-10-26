@@ -1,28 +1,39 @@
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import "./responsive.css";
 import Banner from "./Component/Banner";
 import CategoriesProducts from "./Component/CategoriesProducts";
 import CategoriesSlider from "./Component/CategoriesSlider";
-import Header from "./Component/Header";
 import Auction from "./Component/Auction";
 import About from "./Component/About";
 import Testimonial from "./Component/Testimonial";
 import Newsletter from "./Component/Newsletter";
-import Footer from "./Component/footer";
+import Layout from "./Component/Layout";
+import Shop from "./Component/Shop/Shop";
+import AboutPage from "./Component/About/AboutPage";
+import SoldItems from "./Component/SoldItems.jsx/SoldItems";
+import Contact from "./Component/Contact/Contact";
 
 function App() {
   return (
-    <>
-      <Header />
-      <Banner />
-      <CategoriesSlider />
-      <CategoriesProducts />
-      <Auction />
-      <About />
-      <Testimonial />
-      <Newsletter />
-      <Footer/>
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Layout/>}>
+          <Route index element={<Banner />} />
+          <Route path="categories-slider" element={<CategoriesSlider />} />
+          <Route path="categories-products" element={<CategoriesProducts />} />
+          <Route path="auction" element={<Auction />} />
+          <Route path="about" element={<About />} />
+          <Route path="testimonial" element={<Testimonial />} />
+          <Route path="newsletter" element={<Newsletter />} />
+          <Route path="shop" element={<Shop/>} />
+          <Route path="aboutpage" element={<AboutPage/>} />
+          <Route path="solditems" element={<SoldItems/>} />
+          <Route path="contact" element={<Contact/>} />
+        </Route>
+      </Routes>
+    </Router>
   );
 }
 

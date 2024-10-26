@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   useEffect(() => {
@@ -74,9 +75,9 @@ export default function Header() {
         {/* navbar section  start */}
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
           <div className="container">
-            <a className="navbar-brand" href="#">
+            <Link className="navbar-brand" to="/">
               <img src="./assets/logo.png" alt="" />
-            </a>
+            </Link>
             <a
               data-bs-toggle="offcanvas"
               href="#offcanvasNavbar"
@@ -105,22 +106,22 @@ export default function Header() {
             >
               <ul className="navbar-nav ms-auto mb-2 gap-3 mb-lg-0">
                 <li className="nav-item">
-                  <a
+                  <Link
                     className="nav-link active"
                     aria-current="page"
-                    href="#home"
+                    to="/"
                   >
                     Home
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a
+                  <Link
                     className="nav-link active"
                     aria-current="page"
-                    href="#shop"
+                    to="/shop"
                   >
                     Shop
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item dropdown">
                   <a
@@ -163,22 +164,22 @@ export default function Header() {
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a
+                  <Link
                     className="nav-link active"
                     aria-current="page"
-                    href="#sold"
+                    to="solditems"
                   >
                     Sold Items
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a
+                  <Link
                     className="nav-link active"
                     aria-current="page"
-                    href="#about"
+                    to="aboutpage"
                   >
                     About
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item search-icon">
                   <a
@@ -191,9 +192,9 @@ export default function Header() {
                 </li>
               </ul>
               <form className="header-btn ms-3">
-                <a href="#contact">
+                <Link to="contact">
                   Contact <i className="fa-solid fa-arrow-right"></i>
-                </a>
+                </Link>
               </form>
             </div>
           </div>
@@ -201,9 +202,9 @@ export default function Header() {
         {/* navbar section  end */}
 
         <div className="main-logo">
-          <a href="#">
+          <Link to="/">
             <img src="./assets/logo.png" alt="" />
-          </a>
+          </Link>
         </div>
       </div>
     </>
