@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import MobileMenu from './MobileMenu';
 
 export default function Header() {
   useEffect(() => {
@@ -79,10 +80,7 @@ export default function Header() {
               <img src="./assets/logo.png" alt="" />
             </Link>
             <a
-              data-bs-toggle="offcanvas"
-              href="#offcanvasNavbar"
-              role="button"
-              aria-controls="offcanvasNavbar"
+              data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample"
               className="d-lg-none"
             >
               <svg
@@ -207,6 +205,7 @@ export default function Header() {
           </Link>
         </div>
       </div>
+      <MobileMenu/>
     </>
   );
 }

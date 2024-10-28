@@ -33,6 +33,7 @@ function App() {
           <Route path="solditems" element={<SoldItems/>} />
           <Route path="contact" element={<Contact/>} />
           <Route path="customizemedal" element={<CustomizeMadel/>} />
+          
         </Route>
       </Routes>
     </Router>
