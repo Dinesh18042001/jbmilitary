@@ -139,9 +139,9 @@ export default function Header() {
                     aria-labelledby="navbarDropdown"
                   >
                     <li>
-                      <a className="dropdown-item" href="#">
-                        Action
-                      </a>
+                      <Link className="dropdown-item" to="customizemedal">
+                      Customize Medal
+                      </Link>
                     </li>
                   </ul>
                 </li>
