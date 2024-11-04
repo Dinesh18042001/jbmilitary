@@ -29,12 +29,46 @@ export default function MobileMenu() {
         </h2>
       </div>
 
-      <div className="accordion-item">
-        <h2 className="accordion-header" id="headingOne">
-          <button className="accordion-button accordion-button-2" type="button">
+      {/* <div className="accordion-item">
+        <h2 className="accordion-header" id="headingfour">
+          <button className="accordion-button accordion-button-2" type="button" data-bs-target="#flush-collapsefour" aria-expanded="false" aria-controls="flush-collapsefour">
             <Link to ="customizemedal"> Customize Medal</Link>
           </button>
         </h2>
+        <div id="flush-collapsefour" className="accordion-collapse collapse" aria-labelledby="flush-headingfour"
+          data-bs-parent="#accordionFlushExample">
+          <div className="accordion-body">
+            <div className="col">
+              <a href="#" className="drop-link d-flex allign-items-center text-decoration-none text-dark">
+                <div className="drop_content">
+                  Mobile app Devlopment
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div> */}
+
+      <div className="accordion-item">
+        <h2 className="accordion-header" id="flush-headingfour">
+          <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#flush-collapsefour" aria-expanded="false" aria-controls="flush-collapsefour">
+              Medals
+          </button>
+        </h2>
+        <div id="flush-collapsefour" className="accordion-collapse collapse" aria-labelledby="flush-headingfour"
+          data-bs-parent="#accordionFlushExample">
+          <div className="accordion-body">
+            <div className="col">
+              <Link to ="customizemedal" className="drop-link d-flex allign-items-center text-decoration-none text-dark">
+                
+                <div className="drop_content">
+                Customize Medal
+                </div>
+              </Link>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div className="accordion-item">

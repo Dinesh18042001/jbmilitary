@@ -15,6 +15,7 @@ import AboutPage from "./Component/About/AboutPage";
 import SoldItems from "./Component/SoldItems.jsx/SoldItems";
 import Contact from "./Component/Contact/Contact";
 import CustomizeMadel from "./Component/CustomizeMadel/CustomizeMadel";
+import ProductDetails from "./Component/ProductDetails/ProductDetails";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
           <Route path="solditems" element={<SoldItems/>} />
           <Route path="contact" element={<Contact/>} />
           <Route path="customizemedal" element={<CustomizeMadel/>} />
+          <Route path="productdetails" element={<ProductDetails/>}/>
           
         </Route>
       </Routes>

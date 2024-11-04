@@ -27,6 +27,7 @@ export default function CategoriesProducts() {
       name: "8th & 60th Battalion WW1 Australian medal 4750 Leo Charles",
       image: "./assets/product-img/product-card.webp",
       price: "$65.00",
+      discountedPrice: "$85.00",
       rating: 5,
       sold: true,
     },
@@ -35,6 +36,7 @@ export default function CategoriesProducts() {
       name: "Denix M1869 Schofield Single Action Western Replica Revolver Nickel",
       image: "./assets/product-img/pr-j-3.webp",
       price: "$65.00",
+      discountedPrice: "$80.00",
       rating: 4,
       sold: true,
     },
@@ -43,6 +45,7 @@ export default function CategoriesProducts() {
       name: "Original WW1 British rendered inert P14 Enfield .303 cal rifle, U.S. military contract ‘ERA’ stamped",
       image: "./assets/product-img/car-98.webp",
       price: "$65.00",
+      discountedPrice: "$90.00",
       rating: 4,
       sold: true,
     },
@@ -51,6 +54,7 @@ export default function CategoriesProducts() {
       name: "Original WW1 British rendered inert P14 Enfield .303 cal rifle, U.S. military contract ‘ERA’ stamped",
       image: "./assets/product-img/medal.webp",
       price: "$65.00",
+      discountedPrice: "$95.00",
       rating: 4,
       sold: true,
     },
@@ -59,6 +63,7 @@ export default function CategoriesProducts() {
       name: "Original WW1 British rendered inert P14 Enfield .303 cal rifle, U.S. military contract ‘ERA’ stamped",
       image: "./assets/product-img/medal-2.webp",
       price: "$65.00",
+      discountedPrice: "$75.00",
       rating: 4,
       sold: true,
     },
@@ -67,6 +72,7 @@ export default function CategoriesProducts() {
       name: "Original WW1 British rendered inert P14 Enfield .303 cal rifle, U.S. military contract ‘ERA’ stamped",
       image: "./assets/product-img/medal3.webp",
       price: "$65.00",
+      discountedPrice: "$70.00",
       rating: 4,
       sold: true,
     },
@@ -75,6 +81,7 @@ export default function CategoriesProducts() {
       name: "8th & 60th Battalion WW1 Australian medal 4750 Leo Charles",
       image: "./assets/product-img/product-card.webp",
       price: "$65.00",
+      discountedPrice: "$85.00",
       rating: 5,
       sold: true,
     },
@@ -83,6 +90,7 @@ export default function CategoriesProducts() {
       name: "Denix M1869 Schofield Single Action Western Replica Revolver Nickel",
       image: "./assets/product-img/pr-j-3.webp",
       price: "$65.00",
+      discountedPrice: "$80.00",
       rating: 4,
       sold: true,
     },
@@ -91,6 +99,7 @@ export default function CategoriesProducts() {
       name: "Original WW1 British rendered inert P14 Enfield .303 cal rifle, U.S. military contract ‘ERA’ stamped",
       image: "./assets/product-img/car-98.webp",
       price: "$65.00",
+      discountedPrice: "$90.00",
       rating: 4,
       sold: true,
     },
@@ -106,7 +115,6 @@ export default function CategoriesProducts() {
               <div className="categories-item-tittle">
                 <h5 className="text-center mb-4">All Categories</h5>
               </div>
-
               {categories.map((category, index) => (
                 <div key={index} className="categories-item-link">
                   {index === 2 || index === 8 || index === 14 ? (
@@ -172,45 +180,47 @@ export default function CategoriesProducts() {
                 <div className="row gy-4 pt-3">
                   {products.map((product) => (
                     <div key={product.id} className="col-lg-4 col-xl-4 col-md-6">
-                      <div className="product_carbx">
-                        <div className="product_img position-relative">
-                          <img src={product.image} alt={product.name} />
-                          <div className="overlap_content">
-                            {product.sold && (
-                              <div className="btn_sec">
-                                <a href="#">Sold</a>
+                      <a href={`/product/${product.id}`} className="product_carbx-link">
+                        <div className="product_carbx">
+                          <div className="product_img position-relative">
+                            <img src={product.image} alt={product.name} />
+                            <div className="overlap_content">
+                              {product.sold && (
+                                <div className="btn_sec">
+                                  <a href="#">Sold</a>
+                                </div>
+                              )}
+                              <div className="icon_sec">
+                                <a href="#">
+                                  <i className="far fa-heart"></i>
+                                </a>
+                                <a href="#">
+                                  <i className="fas fa-shopping-cart"></i>
+                                </a>
                               </div>
-                            )}
-                            <div className="icon_sec">
-                              <a href="#">
-                                <i className="far fa-heart"></i>
-                              </a>
-                              <a href="#">
-                                <i className="fas fa-shopping-cart"></i>
-                              </a>
                             </div>
                           </div>
-                        </div>
-                        <div className="content_card">
-                          <p>{product.name}</p>
-                        </div>
-                        <div className="price">
-                          <span>{product.price}</span>
-                          <span>
-                            <del>{product.price}</del>
-                          </span>
-                        </div>
-                        <div className="rating">
-                          <div className="start_bx">
-                            {Array(product.rating)
-                              .fill()
-                              .map((_, i) => (
-                                <i key={i} className="fas fa-star"></i>
-                              ))}
+                          <div className="content_card">
+                            <p>{product.name}</p>
                           </div>
-                          <span>(55)</span>
+                          <div className="price">
+                            <span>{product.price}</span>
+                            <span>
+                              <del>{product.discountedPrice}</del>
+                            </span>
+                          </div>
+                          <div className="rating">
+                            <div className="start_bx">
+                              {Array(product.rating)
+                                .fill()
+                                .map((_, i) => (
+                                  <i key={i} className="fas fa-star"></i>
+                                ))}
+                            </div>
+                            <span>(55)</span>
+                          </div>
                         </div>
-                      </div>
+                      </a>
                     </div>
                   ))}
                 </div>

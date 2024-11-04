@@ -86,4 +86,13 @@
      .auction_wrapper .aoction_card .auc_content{
       padding: 20px 18px;
      }
+     .inner_banner_sec .inner-banner .inner-content h3{
+      font-size: 32px;
+     }
+     .footer_wrapper .footer_banner img{
+      height: 1070px;
+     }
+     .product_slider .paraNew{
+      font-size: 14px;
+     }
   }
