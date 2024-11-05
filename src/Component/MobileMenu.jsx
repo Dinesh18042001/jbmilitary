@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import { Offcanvas } from 'bootstrap';
 
+
 export default function MobileMenu() {
 
   const hideOffcanvas = () => {
@@ -39,22 +40,22 @@ export default function MobileMenu() {
 
           <div className="accordion-item">
             <h2 className="accordion-header" id="headingOne">
-              <Link to="productdetails" className="accordion-button accordion-button-2" onClick={hideOffcanvas}>Shop</Link>
+              <Link to="/productdetails" className="accordion-button accordion-button-2" onClick={hideOffcanvas}>Shop</Link>
             </h2>
           </div>
 
           <div className="accordion-item">
-            <h2 className="accordion-header" id="flush-headingfive">
+            <h2 className="accordion-header" id="flush-headingmedals">
               <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                      data-bs-target="#flush-collapsefive" aria-expanded="false" aria-controls="flush-collapsefive">
+                      data-bs-target="#flush-collapsemedals" aria-expanded="false" aria-controls="flush-collapsemedals">
                 Medals
               </button>
             </h2>
-            <div id="flush-collapsefive" className="accordion-collapse collapse" aria-labelledby="flush-headingfive"
+            <div id="flush-collapsemedals" className="accordion-collapse collapse" aria-labelledby="flush-headingmedals"
                  data-bs-parent="#accordionFlushExample">
               <div className="accordion-body">
                 <div className="col">
-                  <Link to="customizemedal" className="drop-link d-flex align-items-center text-decoration-none text-dark"
+                  <Link to="/customizemedal" className="drop-link d-flex align-items-center text-decoration-none text-dark"
                         onClick={hideOffcanvas}>
                     <div className="drop_content">Customize Medal</div>
                   </Link>
@@ -89,7 +90,7 @@ export default function MobileMenu() {
 
           <div className="accordion-item">
             <h2 className="accordion-header" id="headingOne">
-              <Link to="contact" className="accordion-button accordion-button-2" onClick={hideOffcanvas}>
+              <Link to="#" className="accordion-button accordion-button-2" onClick={hideOffcanvas}>
                 Contact <i className="fa-solid fa-arrow-right"></i>
               </Link>
             </h2>
