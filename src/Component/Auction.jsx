@@ -6,7 +6,7 @@ export default function Auction() {
       <div className="auction_wrapper py-5">
         <div className="container-fluid p-0">
           <div className="wrapper">
-            <div className="row gx-0 gy-4">
+            <div className="row gx-1 gy-4">
               <div className="col-lg-6 col-xl-6">
                 <div className="aoction_card">
                   <div className="card_img">

@@ -67,7 +67,10 @@
     .footer_wrapper .inner-content .row.bootom .bottom_menu{
       justify-content: center;
       flex-wrap: wrap;
-      
+      padding-bottom: 88px;
+    }
+    .bottom_footer_wrapper{
+      display: block;
     }
   }
   @media(max-width:551px){
