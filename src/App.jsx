@@ -12,10 +12,11 @@ import Newsletter from "./Component/Newsletter";
 import Layout from "./Component/Layout";
 import Shop from "./Component/Shop/Shop";
 import AboutPage from "./Component/About/AboutPage";
-import SoldItems from "./Component/SoldItems.jsx/SoldItems";
+import SoldItems from "./Component/SoldItems/SoldItems";
 import Contact from "./Component/Contact/Contact";
 import CustomizeMadel from "./Component/CustomizeMadel/CustomizeMadel";
 import ProductDetails from "./Component/ProductDetails/ProductDetails";
+import AuctionPage from "./Component/Auction/AuctionPage";
 
 function App() {
   return (
@@ -35,7 +36,7 @@ function App() {
           <Route path="contact" element={<Contact/>} />
           <Route path="customizemedal" element={<CustomizeMadel/>} />
           <Route path="productdetails" element={<ProductDetails/>}/>
-          
+          <Route path ="upcomingauction" element={<AuctionPage/>}/>
         </Route>
       </Routes>
     </Router>

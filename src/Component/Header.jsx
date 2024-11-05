@@ -139,20 +139,20 @@ export default function Header() {
                     aria-labelledby="navbarDropdown"
                   >
                     <li>
-                      <Link className="dropdown-item" to="customizemedal">
+                      <Link className="dropdown-item" to="/customizemedal">
                       Customize Medal
                       </Link>
                     </li>
                   </ul>
                 </li>
                 <li className="nav-item">
-                  <a
+                  <Link
                     className="nav-link active"
                     aria-current="page"
-                    href="#auctions"
+                    to="/upcomingauction"
                   >
                     Upcoming Auctions
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
                   <a
