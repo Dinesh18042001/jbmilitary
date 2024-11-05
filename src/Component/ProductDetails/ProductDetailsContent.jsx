@@ -22,7 +22,7 @@ export default function ProductDetailsContent() {
         <h3>UDR Long service Full Size Medal</h3>
       </div>
       <div className="price">
-        <h3>Rs. 6,700.00</h3>
+        <h3>Rs. $6,700.00</h3>
       </div>
       <div className="selecT_bx">
         <div className="row gy-3">
@@ -132,7 +132,7 @@ export default function ProductDetailsContent() {
           </label>
         </div>
         <p className="pt-3">
-          Selections will add <span>Rs. 400.00</span> to the price
+          Selections will add <span>Rs. $400.00</span> to the price
         </p>
       </div>
       <div className="row py-4 gy-3 align-items-center">

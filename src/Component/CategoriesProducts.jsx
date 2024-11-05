@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function CategoriesProducts() {
   const [categories] = useState([
@@ -180,7 +181,7 @@ export default function CategoriesProducts() {
                 <div className="row gy-4 pt-3">
                   {products.map((product) => (
                     <div key={product.id} className="col-lg-4 col-xl-4 col-md-6">
-                      <a href={`/product/${product.id}`} className="product_carbx-link">
+                      <Link to="productdetails" className="product_carbx-link">
                         <div className="product_carbx">
                           <div className="product_img position-relative">
                             <img src={product.image} alt={product.name} />
@@ -220,7 +221,7 @@ export default function CategoriesProducts() {
                             <span>(55)</span>
                           </div>
                         </div>
-                      </a>
+                      </Link>
                     </div>
                   ))}
                 </div>

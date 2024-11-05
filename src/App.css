@@ -1507,7 +1507,7 @@ width: 100px;
   font-size: 14px;
  }
  .product_slider .checK_bx .btn-check{
-  width: 100%;
+  /* width: 100%; */
   border: unset;
   border-color: unset;
  }
@@ -1544,5 +1544,9 @@ width: 100%;
 }
 .product_slider .paraNew{
   font-size: 16px;
+}
+
+html, body {
+  overflow-x: hidden !important;
 }
 /* Product-details-start */
