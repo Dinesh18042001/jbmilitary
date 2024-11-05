@@ -1596,3 +1596,8 @@ border-radius: 10px 10px 0 0;
 box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 display: none;
 }
+
+.mobil_menu_wrapper #accordionFlushExample{
+  height: 370px;
+  overflow-y: scroll;
+}
