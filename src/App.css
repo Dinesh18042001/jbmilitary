@@ -1601,3 +1601,20 @@ display: none;
   height: 370px;
   overflow-y: scroll;
 }
+
+
+
+
+/* Shop-category */
+.shop_cat_wrapper a{
+  color: #000;
+  display: block;
+  padding: 5px 5px;
+}
+.shop_cat_wrapper button{
+  padding: 5px 5px;
+}
+.shop_cat_wrapper{
+  background: #fff;
+  padding: 10px 5px;
+}

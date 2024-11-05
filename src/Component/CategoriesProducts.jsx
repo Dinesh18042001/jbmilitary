@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
+
 export default function CategoriesProducts() {
   const [categories] = useState([
     "Uncategorised",
@@ -107,7 +108,7 @@ export default function CategoriesProducts() {
   ];
 
   return (
-    <div className="categoriesproducts-section mb-5">
+    <div className="categoriesproducts-section mb-5 mt-5">
       <div className="container">
         <div className="row gy-5">
           {/* Categories Section */}
@@ -181,7 +182,7 @@ export default function CategoriesProducts() {
                 <div className="row gy-4 pt-3">
                   {products.map((product) => (
                     <div key={product.id} className="col-lg-4 col-xl-4 col-md-6">
-                      <Link to="productdetails" className="product_carbx-link">
+                      <Link to="/productdetails" className="product_carbx-link">
                         <div className="product_carbx">
                           <div className="product_img position-relative">
                             <img src={product.image} alt={product.name} />
