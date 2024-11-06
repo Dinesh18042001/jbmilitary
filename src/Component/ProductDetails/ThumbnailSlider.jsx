@@ -13,6 +13,21 @@ export default function ThumbnailSlider() {
     { id: 7, src: "./assets/medal/medal1.webp", alt: "Thumbnail 8" },
   ];
 
+
+ 
+
+
+    const handleExpandClick = () => {
+      Fancybox.show(
+        images.map((image) => ({ src: image.src, type: "image" })),
+        {
+          groupAll: false, // Keep only the selected images in the gallery
+        }
+      );
+    };
+    
+  
+
   return (
     <>
       <section className="product_slider">
@@ -40,13 +55,9 @@ export default function ThumbnailSlider() {
                   ))}
 
                   <div className="gallery_bx">
-                    <a
-                      data-fancybox="gallery"
-                      href="#" // Open the first image in lightbox
-                      className="expand-link"
-                    >
-                      <i className="fas fa-search-plus"></i> Click to expand
-                    </a>
+                  <a onClick={handleExpandClick} className="expand-link">
+                  <i className="fas fa-search-plus"></i> Click to expand
+                </a>
                   </div>
                 </div>
               </div>
@@ -145,3 +156,11 @@ export default function ThumbnailSlider() {
     </>
   );
 }
+
+
+
+
+
+
+
+
