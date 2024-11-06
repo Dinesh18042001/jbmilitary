@@ -1248,12 +1248,12 @@ ul li a {
   height: 50px;
 }
 
-.form_wrapper_bx .form_bx {
+/* .form_wrapper_bx .form_bx {
   background: rgba(255, 255, 255, 1);
   border: 1px solid rgba(225, 225, 225, 1);
   padding: 10px 10px;
   border-radius: 20px;
-}
+} */
 
 .form-select:focus {
   box-shadow: none;
@@ -1294,6 +1294,7 @@ ul li a {
   border-radius: 4px;
   transition: all .5s;
   display: none;
+  right: -31px;
 }
 .form_bx .medal_quantity .hover_text p{
   color: #fff;
@@ -1342,6 +1343,9 @@ background: var(--primary-color);
   align-items: center;
   justify-content: center;
   gap: 10px;
+  border: 1px solid #000;
+  padding: 5px;
+  border-radius: 5px;
 }
 .form_bx .medal_quantity.all_quantity input{
   width: 41%;
@@ -1372,6 +1376,32 @@ background: var(--primary-color);
 width: 100px;
 }
 
+.form_bx .togle_wrapper {
+  background: #fff;
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  gap: 17px;
+  padding: 12px 13px;
+  height: 50px;
+}
+
+.form_bx .togle_wrapper .tool_text span{
+  font-size: 16px;
+}
+.form_bx #quantity_fetch input{
+  width: 50%;
+}
+.form_bx .my-custom-select .css-13cymwt-control{
+height: 50px;
+  overflow-y: scroll;
+  /* padding: 12px 13px; */
+}
+.form_bx  .ribbon-select .css-13cymwt-control{
+  height: 50px;
+    overflow-y: scroll;
+    /* padding: 12px 13px; */
+  }
 /* Mobile-menu */
 
 .mobil_menu_wrapper.offcanvas .accordion-body .drop-link {
