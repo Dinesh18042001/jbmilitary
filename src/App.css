@@ -430,9 +430,13 @@ ul li a {
   font-weight: 500;
   color: #777777 !important;
 }
-
+/* 
 .accordion-button:not(.collapsed) {
-  background-color: none !important;
+  background-color: none;
+} */
+
+.offcanvas-backdrop.show{
+  opacity: 0;
 }
 
 .accordion-button::after {
