@@ -1734,3 +1734,39 @@ color: #fff;
   background: #00000059;
   border-radius: 10px 0px 10px 0;
 }
+
+
+
+
+/* auctionbid-info secction start */
+.auctionbid-info p{
+  font-size: 17px;
+  font-weight: 400;
+}
+.auctionbid-info p a{
+  color: var(--primary-color);
+  font-weight: 500;
+}
+.conditions-section .conditions-btn a{
+ border: 2px solid #fff;
+ padding: 15px 45px;
+ border-radius: 10px;
+ font-weight: 600;
+ background: var(--primary-color);
+ color: #fff;
+}
+/* auctionbid-info secction end */
+
+
+
+/* upcomingauctions-section start */
+.upcomingauctions-section .upcomingauctions-section-tittle p{
+  font-weight: 500;
+  font-size: 22px;
+  color: var(--primary-color);
+} 
+.upcomingauctions-section .upcomingauctions-section-tittle h2{
+ font-weight: 700;
+ font-size: 35px;
+}
+/* upcomingauctions-section end */

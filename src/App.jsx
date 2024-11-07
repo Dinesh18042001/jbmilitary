@@ -17,6 +17,9 @@ import Contact from "./Component/Contact/Contact";
 import CustomizeMadel from "./Component/CustomizeMadel/CustomizeMadel";
 import ProductDetails from "./Component/ProductDetails/ProductDetails";
 import AuctionPage from "./Component/Auction/AuctionPage";
+import SellerCondition from "./Component/TermsAndConditions/SellerCondition";
+import BuyerCondition from "./Component/TermsAndConditions/BuyerCondition";
+import AbsenteeCondition from "./Component/TermsAndConditions/AbsenteeCondition";
 
 function App() {
   return (
@@ -37,6 +40,10 @@ function App() {
           <Route path="customizemedal" element={<CustomizeMadel/>} />
           <Route path="productdetails" element={<ProductDetails/>}/>
           <Route path ="upcomingauction" element={<AuctionPage/>}/>
+          <Route path ="seller-terms-conditions" element={<SellerCondition/>}/>
+          <Route path ="buyer-terms-conditions" element={<BuyerCondition/>}/>
+          <Route path ="absentee-phone-bid-form" element={<AbsenteeCondition/>}/>
+
         </Route>
       </Routes>
     </Router>
