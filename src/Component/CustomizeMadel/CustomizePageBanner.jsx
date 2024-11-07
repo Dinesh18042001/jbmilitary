@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
 import Select from "react-select";
+import { components } from "react-select"; 
+
 
 export default function CustomizePageBanner() {
   const [medalQuantity, setMedalQuantity] = useState(0);
   const [ribbonQuantity, setRibbonQuantity] = useState(0);
   const [barQuantity, setBarQuantity] = useState(0);
   const [totalQuantity, totalAllquantity] = useState(0);
+  const [totalMedal, totalMedalquantity] = useState(0);
   const [activeOption, setActiveOption] = useState("option1");
   const [includeRibbon, setIncludeRibbon] = useState(false);
   const [selectedMedals, setSelectedMedals] = useState([]);
@@ -40,6 +43,11 @@ export default function CustomizePageBanner() {
   const decrementBar = () =>
     setBarQuantity((prev) => (prev > 0 ? prev - 1 : 0));
 
+  
+  const incrementMedals = () =>
+    totalMedalquantity((prev) => (prev < 20 ? prev + 1 : 20));
+  const decrementMedals = () =>
+    totalMedalquantity((prev) => (prev > 0 ? prev - 1 : 0));
   // Handle input changes
   const handleMedalChange = (e) =>
     setMedalQuantity(Math.min(parseInt(e.target.value, 10) || 0, 20));
@@ -50,6 +58,9 @@ export default function CustomizePageBanner() {
 
   const AllBarQuantity = (e) =>
     setBarQuantity(Math.min(parseInt(e.target.value, 10) || 0, 20));
+
+  const AllMedalQuantity = (e) =>
+    totalMedalquantity(Math.min(parseInt(e.target.value, 10) || 0, 20));
 
   // Handle radio button change and update quantity label
   const handleOptionChange = (option) => {
@@ -85,13 +96,51 @@ export default function CustomizePageBanner() {
   };
 
   // Options for MultiSelect
+  // const ribbonOptions = [
+  //   { value: "ASM 75+", label: "ASM 75+" },
+  //   {
+  //     value: "Aus Active Service Medal 75+",
+  //     label: "Aus Active Service Medal 75+",
+  //   },
+  // ];
+
+
+
   const ribbonOptions = [
-    { value: "ASM 75+", label: "ASM 75+" },
+    {
+      value: "ASM 75+",
+      label: "ASM 75+",
+      image: "./assets/medal/medal1.webp", // ASM 75+ image URL
+    },
     {
       value: "Aus Active Service Medal 75+",
       label: "Aus Active Service Medal 75+",
+      image: "./assets/medal/medal3.webp", // Aus Active Service Medal 75+ image URL
     },
   ];
+
+  
+
+// Custom Option component jo image aur label ko render karega
+const CustomOption = (props) => (
+  <components.Option {...props}>
+    <img
+      src={props.data.image}
+      alt={props.data.label}
+      style={{
+        width: 90,
+        height: 90,
+        marginRight: 10,
+        boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.2)",
+        borderRadius:"8px", // Shadow add kiya gaya
+      }}
+    />
+    {props.data.label}
+  </components.Option>
+);
+
+
+
 
   const RibbonSelect = () => {
     const options = [
@@ -276,6 +325,7 @@ export default function CustomizePageBanner() {
                     placeholder="Select Medal"
                     closeMenuOnSelect={false}
                     className="ribbon-select"
+                    components={{ Option: CustomOption }} // Custom option add kiya
                   />
                 </div>
 
@@ -360,9 +410,10 @@ export default function CustomizePageBanner() {
               <div className="row py-4 align-items-center">
                 <div className="col-xl-12 col-lg-12">
                   <div className="row gy-4 align-items-center">
-                    <div className="col-lg-6 col-xl-6">
+                    <div className="col-lg-4 col-xl-4">
                       <div className="quantity_main_bx">
-                        <span>{quantityLabel} :</span>
+                        {/* {/ <span>{quantityLabel} :</span> /} */}
+                        <span>Set of Miniature</span>
                         <div className="quantity_input">
                           <div className="medal_quantity all_quantity form-control d-flex align-items-center">
                             <button type="button" onClick={decrementQuan}>
@@ -383,7 +434,34 @@ export default function CustomizePageBanner() {
                         </div>
                       </div>
                     </div>
-                    <div className="col-lg-6 col-xl-6">
+                    <div className="col-lg-4 col-xl-4">
+                      <div
+                        className="quantity_main_bx"
+                        
+                      >
+                        <span>Set of Medal:</span>
+                        <div className="quantity_input">
+                          <div className="medal_quantity all_quantity form-control d-flex align-items-center">
+                            <button type="button" onClick={decrementMedals}>
+                              -
+                            </button>
+                            <input
+                              type="number"
+                              className="form-control text-center"
+                              value={totalMedal}
+                              onChange={AllMedalQuantity}
+                              min="0"
+                              max="20"
+                            />
+                            <button type="button" onClick={incrementMedals}>
+                              +
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="col-lg-4 col-xl-4">
                       <div
                         className="quantity_main_bx"
                         style={{
@@ -391,7 +469,7 @@ export default function CustomizePageBanner() {
                           pointerEvents: ribbonQuantity === 0 ? "none" : "auto",
                         }}
                       >
-                        <span>Ribbon Quantity :</span>
+                        <span>Set of Ribbon bar:</span>
                         <div className="quantity_input">
                           <div className="medal_quantity all_quantity form-control d-flex align-items-center">
                             <button
