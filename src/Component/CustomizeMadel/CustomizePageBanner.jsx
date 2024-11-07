@@ -63,6 +63,27 @@ export default function CustomizePageBanner() {
     totalMedalquantity(Math.min(parseInt(e.target.value, 10) || 0, 20));
 
   // Handle radio button change and update quantity label
+  // const handleOptionChange = (option) => {
+  //   setActiveOption(option);
+  //   switch (option) {
+  //     case "option1":
+  //       setQuantityLabel("Quantity of Miniature");
+  //       break;
+  //     case "option2":
+  //       setQuantityLabel("Quantity of Original");
+  //       break;
+  //     case "option3":
+  //       setQuantityLabel("Quantity of Both");
+  //       break;
+  //     default:
+  //       setQuantityLabel("Quantity");
+  //   }
+  // };
+
+
+  // condition-button-render
+
+  // Handle radio button change and update quantity label
   const handleOptionChange = (option) => {
     setActiveOption(option);
     switch (option) {
@@ -79,6 +100,45 @@ export default function CustomizePageBanner() {
         setQuantityLabel("Quantity");
     }
   };
+  
+  const isDisabled = (optionType) => {
+  return !(
+    activeOption === optionType ||
+    (activeOption === "option3" && (optionType === "option1" || optionType === "option2"))
+  );
+};
+
+  // Render buttons conditionally based on activeOption
+  const renderButton = (label, option) => {
+    return activeOption === option ? (
+      <div className="col-lg-4 col-xl-4">
+        <div className="quantity_main_bx">
+          <span>{label}</span>
+          <div className="quantity_input">
+            <div className="medal_quantity all_quantity form-control d-flex align-items-center">
+              <button type="button" onClick={decrementQuan}>
+                -
+              </button>
+              <input
+                type="number"
+                className="form-control text-center"
+                value={totalQuantity}
+                onChange={AllQuantity}
+                min="0"
+                max="20"
+              />
+              <button type="button" onClick={incrementQuan}>
+                +
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    ) : null;
+  };
+
+
+
 
   // Track Include Ribbon radio selection
   const handleIncludeRibbonChange = (value) => {
@@ -341,125 +401,138 @@ const CustomOption = (props) => (
                   </div>
                 )}
               </div>
-              <div className="row pt-4 gy-3">
-                <div className="col-lg-4 col-xl-4 col-md-6">
-                  <div className="togle_btn">
-                    <input
-                      type="radio"
-                      className="btn-check"
-                      name="options"
-                      id="option1"
-                      autoComplete="off"
-                      checked={activeOption === "option1"}
-                      onChange={() => handleOptionChange("option1")}
-                    />
-                    <label
-                      className={`btn btn-secondary ${
-                        activeOption === "option1" ? "active" : ""
-                      }`}
-                      htmlFor="option1"
-                    >
-                      Miniature
-                    </label>
-                  </div>
-                </div>
-                <div className="col-lg-4 col-xl-4 col-md-6">
-                  <div className="togle_btn">
-                    <input
-                      type="radio"
-                      className="btn-check"
-                      name="options"
-                      id="option2"
-                      autoComplete="off"
-                      checked={activeOption === "option2"}
-                      onChange={() => handleOptionChange("option2")}
-                    />
-                    <label
-                      className={`btn btn-secondary ${
-                        activeOption === "option2" ? "active" : ""
-                      }`}
-                      htmlFor="option2"
-                    >
-                      Original Medal
-                    </label>
-                  </div>
-                </div>
-                <div className="col-lg-4 col-xl-4 col-md-6">
-                  <div className="togle_btn">
-                    <input
-                      type="radio"
-                      className="btn-check"
-                      name="options"
-                      id="option3"
-                      autoComplete="off"
-                      checked={activeOption === "option3"}
-                      onChange={() => handleOptionChange("option3")}
-                    />
-                    <label
-                      className={`btn btn-secondary ${
-                        activeOption === "option3" ? "active" : ""
-                      }`}
-                      htmlFor="option3"
-                    >
-                      Both
-                    </label>
-                  </div>
+              {/* Option Buttons for Miniature, Original, and Both */}
+            <div className="row pt-4 gy-3">
+              <div className="col-lg-4 col-xl-4 col-md-6">
+                <div className="togle_btn">
+                  <input
+                    type="radio"
+                    className="btn-check"
+                    name="options"
+                    id="option1"
+                    autoComplete="off"
+                    checked={activeOption === "option1"}
+                    onChange={() => handleOptionChange("option1")}
+                  />
+                  <label
+                    className={`btn btn-secondary ${
+                      activeOption === "option1" ? "active" : ""
+                    }`}
+                    htmlFor="option1"
+                  >
+                    Miniature
+                  </label>
                 </div>
               </div>
+              <div className="col-lg-4 col-xl-4 col-md-6">
+                <div className="togle_btn">
+                  <input
+                    type="radio"
+                    className="btn-check"
+                    name="options"
+                    id="option2"
+                    autoComplete="off"
+                    checked={activeOption === "option2"}
+                    onChange={() => handleOptionChange("option2")}
+                  />
+                  <label
+                    className={`btn btn-secondary ${
+                      activeOption === "option2" ? "active" : ""
+                    }`}
+                    htmlFor="option2"
+                  >
+                    Original Medal
+                  </label>
+                </div>
+              </div>
+              <div className="col-lg-4 col-xl-4 col-md-6">
+                <div className="togle_btn">
+                  <input
+                    type="radio"
+                    className="btn-check"
+                    name="options"
+                    id="option3"
+                    autoComplete="off"
+                    checked={activeOption === "option3"}
+                    onChange={() => handleOptionChange("option3")}
+                  />
+                  <label
+                    className={`btn btn-secondary ${
+                      activeOption === "option3" ? "active" : ""
+                    }`}
+                    htmlFor="option3"
+                  >
+                    Both
+                  </label>
+                </div>
+              </div>
+            </div>
 
               <div className="row py-4 align-items-center">
                 <div className="col-xl-12 col-lg-12">
                   <div className="row gy-4 align-items-center">
-                    <div className="col-lg-4 col-xl-4">
-                      <div className="quantity_main_bx">
-                        {/* {/ <span>{quantityLabel} :</span> /} */}
-                        <span>Set of Miniature</span>
-                        <div className="quantity_input">
-                          <div className="medal_quantity all_quantity form-control d-flex align-items-center">
-                            <button type="button" onClick={decrementQuan}>
-                              -
-                            </button>
-                            <input
-                              type="number"
-                              className="form-control text-center"
-                              value={totalQuantity}
-                              onChange={AllQuantity}
-                              min="0"
-                              max="20"
-                            />
-                            <button type="button" onClick={incrementQuan}>
-                              +
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-lg-4 col-xl-4">
-                      <div
-                        className="quantity_main_bx"
-                        
-                      >
-                        <span>Set of Medal:</span>
-                        <div className="quantity_input">
-                          <div className="medal_quantity all_quantity form-control d-flex align-items-center">
-                            <button type="button" onClick={decrementMedals}>
-                              -
-                            </button>
-                            <input
-                              type="number"
-                              className="form-control text-center"
-                              value={totalMedal}
-                              onChange={AllMedalQuantity}
-                              min="0"
-                              max="20"
-                            />
-                            <button type="button" onClick={incrementMedals}>
-                              +
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                     {/* Show Set of Miniature and/or Medal based on selection */}
+                    {/* Set of Miniature */}
+          <div
+            className="col-lg-4 col-xl-4"
+            style={{
+              opacity: isDisabled("option1") ? 0.4 : 1,
+              pointerEvents: isDisabled("option1") ? "none" : "auto",
+            }}
+          >
+            <div className="quantity_main_bx">
+              <span>Set of Miniature</span>
+              <div className="quantity_input">
+                <div className="medal_quantity all_quantity form-control d-flex align-items-center">
+                  <button type="button" onClick={decrementQuan}>
+                    -
+                  </button>
+                  <input
+                    type="number"
+                    className="form-control text-center"
+                    value={totalQuantity}
+                    onChange={AllQuantity}
+                    min="0"
+                    max="20"
+                  />
+                  <button type="button" onClick={incrementQuan}>
+                    +
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Set of Medal */}
+          <div
+            className="col-lg-4 col-xl-4"
+            style={{
+              opacity: isDisabled("option2") ? 0.4 : 1,
+              pointerEvents: isDisabled("option2") ? "none" : "auto",
+            }}
+          >
+            <div className="quantity_main_bx">
+              <span>Set of Medal</span>
+              <div className="quantity_input">
+                <div className="medal_quantity all_quantity form-control d-flex align-items-center">
+                  <button type="button" onClick={decrementQuan}>
+                    -
+                  </button>
+                  <input
+                    type="number"
+                    className="form-control text-center"
+                    value={totalQuantity}
+                    onChange={AllQuantity}
+                    min="0"
+                    max="20"
+                  />
+                  <button type="button" onClick={incrementQuan}>
+                    +
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
 
                     <div className="col-lg-4 col-xl-4">
                       <div
@@ -469,7 +542,7 @@ const CustomOption = (props) => (
                           pointerEvents: ribbonQuantity === 0 ? "none" : "auto",
                         }}
                       >
-                        <span>Set of Ribbon bar:</span>
+                        <span>Ribbon bar set:</span>
                         <div className="quantity_input">
                           <div className="medal_quantity all_quantity form-control d-flex align-items-center">
                             <button
