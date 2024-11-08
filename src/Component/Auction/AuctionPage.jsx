@@ -2,6 +2,7 @@ import React from 'react'
 import AuctionBanner from './AuctionBanner'
 import AuctionContent from './AuctionContent'
 import AuctionBid from './AuctionBid'
+import PreviousAuction from './PreviousAuction'
 
 export default function AuctionPage() {
   return (
@@ -9,6 +10,7 @@ export default function AuctionPage() {
     <AuctionBanner/>
     <AuctionContent/>
     <AuctionBid/>
+    <PreviousAuction/>
     </>
   )
 }
