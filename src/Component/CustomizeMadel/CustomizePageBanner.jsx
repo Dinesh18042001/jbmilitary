@@ -363,22 +363,24 @@ export default function CustomizePageBanner() {
                   </div>
                 </div>
                 <div className="col-lg-6 col-xl-6 col-md-6">
-                <Select
-  isMulti
-  options={ribbonOptions}
-  value={ribbonOptions.filter((option) =>
-    selectedRibbons.includes(option.value)
-  )}
-  onChange={(selectedOptions) =>
-    setSelectedRibbons(
-      selectedOptions ? selectedOptions.map((option) => option.value) : []
-    )
-  }
-  placeholder="Type to search medals..." // Search hint for clarity
-  closeMenuOnSelect={false}
-  className="ribbon-select"
-  components={{ Option: CustomOption }}
-/>
+                  <Select
+                    isMulti
+                    options={ribbonOptions}
+                    value={ribbonOptions.filter((option) =>
+                      selectedRibbons.includes(option.value)
+                    )}
+                    onChange={(selectedOptions) =>
+                      setSelectedRibbons(
+                        selectedOptions
+                          ? selectedOptions.map((option) => option.value)
+                          : []
+                      )
+                    }
+                    placeholder="Type to search medals..." // Search hint for clarity
+                    closeMenuOnSelect={false}
+                    className="ribbon-select"
+                    components={{ Option: CustomOption }}
+                  />
                 </div>
 
                 {selectedRibbons.includes("ASM 75+") && (

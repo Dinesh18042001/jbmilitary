@@ -1234,13 +1234,17 @@ ul li a {
 /* Form-wrapper-start */
 
 .form_wrapper_bx .main_title h4 {
-  background: var(--primary-color);
+  /* background: var(--primary-color); */
   display: inline-block;
   text-align: center;
-  color: #fff;
-  padding: 10px 100px;
-  border-radius: 100px;
+  color: #000;
+  /* padding: 10px 100px; */
+  /* border-radius: 100px; */
   font-family: var(--robo-font);
+  border-bottom: 2px solid var(--primary-color);
+  display: inline-block;
+  font-family: var(--secondry-font);
+  font-size: 35px;
 }
 
 .form_wrapper_bx .form_bx select {
