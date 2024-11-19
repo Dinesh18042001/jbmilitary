@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-export default function CategoriesProducts() {
+export default function CategoriesProducts({ categoryType }) {
   const [categories] = useState([
     "Uncategorised",
     "Sold Items",
@@ -32,7 +32,7 @@ export default function CategoriesProducts() {
       price: "$65.00",
       discountedPrice: "$85.00",
       rating: 5,
-      sold: true,
+      sold: false,
     },
     {
       id: 2,
@@ -50,7 +50,7 @@ export default function CategoriesProducts() {
       price: "$65.00",
       discountedPrice: "$90.00",
       rating: 4,
-      sold: true,
+      sold: false,
     },
     {
       id: 4,
@@ -68,7 +68,7 @@ export default function CategoriesProducts() {
       price: "$65.00",
       discountedPrice: "$75.00",
       rating: 4,
-      sold: true,
+      sold: false,
     },
     {
       id: 6,
@@ -86,7 +86,7 @@ export default function CategoriesProducts() {
       price: "$65.00",
       discountedPrice: "$85.00",
       rating: 5,
-      sold: true,
+      sold: false,
     },
     {
       id: 2,
@@ -107,6 +107,13 @@ export default function CategoriesProducts() {
       sold: true,
     },
   ];
+
+   // Filter products based on `categoryType`
+   const filteredProducts = products.filter((product) => {
+    if (categoryType === "sold") return product.sold === true;
+    if (categoryType === "sale") return product.sold === false;
+    return true; // Default: Show all products
+  });
 
   // State to manage open/close status for each accordion item
   const [openAccordion, setOpenAccordion] = useState(null);
@@ -191,53 +198,58 @@ export default function CategoriesProducts() {
 
             <div className="product_main">
               <div className="product_card">
-                <div className="row gy-4 pt-3">
-                  {products.map((product) => (
-                    <div key={product.id} className="col-lg-4 col-xl-4 col-md-6">
-                      <Link to="/productdetails" className="product_carbx-link">
-                        <div className="product_carbx">
-                          <div className="product_img position-relative">
-                            <img src={product.image} alt={product.name} />
-                            <div className="overlap_content">
-                              {product.sold && (
-                                <div className="btn_sec">
-                                  <a href="#">Sold</a>
-                                </div>
-                              )}
-                              <div className="icon_sec">
-                                <a href="#">
-                                  <i className="far fa-heart"></i>
-                                </a>
-                                <a href="#">
-                                  <i className="fas fa-shopping-cart"></i>
-                                </a>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="content_card">
-                            <p>{product.name}</p>
-                          </div>
-                          <div className="price">
-                            <span>{product.price}</span>
-                            <span>
-                              <del>{product.discountedPrice}</del>
-                            </span>
-                          </div>
-                          <div className="rating">
-                            <div className="start_bx">
-                              {Array(product.rating)
-                                .fill()
-                                .map((_, i) => (
-                                  <i key={i} className="fas fa-star"></i>
-                                ))}
-                            </div>
-                            <span>(55)</span>
-                          </div>
-                        </div>
-                      </Link>
-                    </div>
-                  ))}
+              <div className="row gy-4 pt-3">
+  {filteredProducts.length > 0 ? (
+    filteredProducts.map((product) => (
+      <div key={product.id} className="col-lg-4 col-xl-4 col-md-6">
+        <Link to="/productdetails" className="product_carbx-link">
+          <div className="product_carbx">
+            <div className="product_img position-relative">
+              <img src={product.image} alt={product.name} />
+              <div className="overlap_content">
+                {product.sold && (
+                  <div className="btn_sec">
+                    <a href="#">Sold</a>
+                  </div>
+                )}
+                <div className="icon_sec">
+                  <a href="#">
+                    <i className="far fa-heart"></i>
+                  </a>
+                  <a href="#">
+                    <i className="fas fa-shopping-cart"></i>
+                  </a>
                 </div>
+              </div>
+            </div>
+            <div className="content_card">
+              <p>{product.name}</p>
+            </div>
+            <div className="price">
+              <span>{product.price}</span>
+              <span>
+                <del>{product.discountedPrice}</del>
+              </span>
+            </div>
+            <div className="rating">
+              <div className="start_bx">
+                {Array(product.rating)
+                  .fill()
+                  .map((_, i) => (
+                    <i key={i} className="fas fa-star"></i>
+                  ))}
+              </div>
+              <span>(55)</span>
+            </div>
+          </div>
+        </Link>
+      </div>
+    ))
+  ) : (
+    <p>No sold products available.</p>
+  )}
+</div>
+
               </div>
             </div>
           </div>

@@ -1,7 +1,13 @@
 import React from 'react'
+import SoldBanner from './SoldBanner'
+import CategoriesProducts from '../CategoriesProducts'
 
 export default function SoldItems() {
   return (
-    <div>SoldItems</div>
+   <>
+   <SoldBanner/>
+   <CategoriesProducts categoryType="sold" />
+
+   </>
   )
 }

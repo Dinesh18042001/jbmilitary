@@ -98,4 +98,7 @@
      .product_slider .paraNew{
       font-size: 14px;
      }
+     .login_page_wrapper .container{
+      height: 704px !important;
+     }
   }

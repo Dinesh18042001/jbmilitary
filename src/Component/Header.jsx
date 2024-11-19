@@ -1,9 +1,11 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import 'bootstrap/dist/js/bootstrap.bundle.min';
-import MobileMenu from './MobileMenu';
+import "bootstrap/dist/js/bootstrap.bundle.min";
+import MobileMenu from "./MobileMenu";
+
 
 export default function Header() {
+  
   useEffect(() => {
     const handleScroll = () => {
       const nav = document.querySelector(".navbar");
@@ -19,7 +21,6 @@ export default function Header() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  
 
   return (
     <>
@@ -62,9 +63,9 @@ export default function Header() {
                         </a>
                       </div>
                       <div className="icon-box">
-                        <a href="#">
+                        <Link  to="/login">
                           <i className="fas fa-user-circle"></i>
-                        </a>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -82,7 +83,10 @@ export default function Header() {
               <img src="./assets/logo.png" alt="" />
             </Link>
             <a
-              data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample"
+              data-bs-toggle="offcanvas"
+              href="#offcanvasExample"
+              role="button"
+              aria-controls="offcanvasExample"
               className="d-lg-none"
             >
               <svg
@@ -106,11 +110,7 @@ export default function Header() {
             >
               <ul className="navbar-nav ms-auto mb-2 gap-3 mb-lg-0">
                 <li className="nav-item">
-                  <Link
-                    className="nav-link active"
-                    aria-current="page"
-                    to="/"
-                  >
+                  <Link className="nav-link active" aria-current="page" to="/">
                     Home
                   </Link>
                 </li>
@@ -140,7 +140,7 @@ export default function Header() {
                   >
                     <li>
                       <Link className="dropdown-item" to="/customizemedal">
-                      Customize Medal
+                        Customize Medal
                       </Link>
                     </li>
                   </ul>
@@ -155,13 +155,13 @@ export default function Header() {
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <a
+                  <Link
                     className="nav-link active"
                     aria-current="page"
-                    href="#selling"
+                    to="/selling"
                   >
-                    Selling?
-                  </a>
+                    Selling ?
+                  </Link>
                 </li>
                 <li className="nav-item">
                   <Link
@@ -207,7 +207,8 @@ export default function Header() {
           </Link>
         </div>
       </div>
-      <MobileMenu/>
+      <MobileMenu />
+      
     </>
   );
 }

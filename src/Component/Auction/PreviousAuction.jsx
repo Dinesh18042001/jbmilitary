@@ -87,8 +87,8 @@ export default function PreviousAuction() {
                   </span>
                   <div className="auction_content">
                     <a href="#">
-                      <p className="m-0">Auction 1</p>
-                      <div className="aution_inner">2 October 2016</div>
+                      <p className="m-0">Auction 2</p>
+                      <div className="aution_inner">30 April 2017</div>
                     </a>
                   </div>
                 </div>
@@ -100,8 +100,8 @@ export default function PreviousAuction() {
                   </span>
                   <div className="auction_content">
                     <a href="#">
-                      <p className="m-0">Auction 1</p>
-                      <div className="aution_inner">2 October 2016</div>
+                      <p className="m-0">Auction 3</p>
+                      <div className="aution_inner">24 September 2017</div>
                     </a>
                   </div>
                 </div>
@@ -111,8 +111,8 @@ export default function PreviousAuction() {
                   </span>
                   <div className="auction_content">
                     <a href="#">
-                      <p className="m-0">Auction 1</p>
-                      <div className="aution_inner">2 October 2016</div>
+                      <p className="m-0">Auction 4</p>
+                      <div className="aution_inner">29 April 2018</div>
                     </a>
                   </div>
                 </div>
@@ -124,8 +124,8 @@ export default function PreviousAuction() {
                   </span>
                   <div className="auction_content">
                     <a href="#">
-                      <p className="m-0">Auction 1</p>
-                      <div className="aution_inner">2 October 2016</div>
+                      <p className="m-0">Auction 5</p>
+                      <div className="aution_inner">28 October 2018</div>
                     </a>
                   </div>
                 </div>
@@ -135,8 +135,8 @@ export default function PreviousAuction() {
                   </span>
                   <div className="auction_content">
                     <a href="#">
-                      <p className="m-0">Auction 1</p>
-                      <div className="aution_inner">2 October 2016</div>
+                      <p className="m-0">Auction 6</p>
+                      <div className="aution_inner">28 April 2019</div>
                     </a>
                   </div>
                 </div>

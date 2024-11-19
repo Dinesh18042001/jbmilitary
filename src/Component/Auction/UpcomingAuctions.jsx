@@ -11,11 +11,13 @@ export default function UpcomingAuctions() {
         <div className="row justify-content-center pt-3">
           <div className="col-lg-3 col-xl-3">
             <div className="auctio_card">
-              1st December 2024
+              <a href="#">
+              1st December 2024 
+              </a>
+             
             </div>
           </div>
         </div>
-       
      </div>
     </div>
   )

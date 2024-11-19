@@ -37,10 +37,19 @@ export default function Newsletter() {
                 <div className="social-icon">
                     <p>Follow Us</p>
                     <div className="icon_bx">
-                    <i class="fab fa-youtube"></i>
+                      <a href="#">
+                      <i class="fab fa-youtube"></i>
+                      </a>
+                    <a href="#">
                     <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#">
                     <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#">
                     <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    
                     </div>
                 </div>
             </div>

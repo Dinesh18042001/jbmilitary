@@ -20,6 +20,8 @@ import AuctionPage from "./Component/Auction/AuctionPage";
 import SellerCondition from "./Component/TermsAndConditions/SellerCondition";
 import BuyerCondition from "./Component/TermsAndConditions/BuyerCondition";
 import AbsenteeCondition from "./Component/TermsAndConditions/AbsenteeCondition";
+import Selling from "./Component/Selling/Selling";
+import Login from "./Component/Modal/LogIn";
 
 function App() {
   return (
@@ -43,7 +45,8 @@ function App() {
           <Route path ="seller-terms-conditions" element={<SellerCondition/>}/>
           <Route path ="buyer-terms-conditions" element={<BuyerCondition/>}/>
           <Route path ="absentee-phone-bid-form" element={<AbsenteeCondition/>}/>
-
+        <Route path="selling" element ={<Selling/>}/>
+        <Route path="login" element={<Login/>}/>
         </Route>
       </Routes>
     </Router>
