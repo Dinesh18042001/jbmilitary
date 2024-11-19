@@ -1,5 +1,5 @@
 import React from 'react'
-import SellingBanner from './Sellingbanner'
+import SellingBanner from './SellingBanner'
 import SellingForm from './SellingForm'
 
 export default function Selling() {
