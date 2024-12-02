@@ -2,10 +2,12 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import MobileMenu from "./MobileMenu";
-
+import { useState } from "react";
 
 export default function Header() {
   
+  const [showSearchBar, setShowSearchBar] = useState(false);
+
   useEffect(() => {
     const handleScroll = () => {
       const nav = document.querySelector(".navbar");
@@ -21,6 +23,10 @@ export default function Header() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const handleSearchClick = () => {
+    setShowSearchBar(!showSearchBar);
+  };
 
   return (
     <>
@@ -63,9 +69,49 @@ export default function Header() {
                         </a>
                       </div>
                       <div className="icon-box">
-                        <Link  to="/login">
-                          <i className="fas fa-user-circle"></i>
-                        </Link>
+                        <div className="icon-box">
+                          {/* Dropdown */}
+                          <div className="dropdown">
+                            <Link
+                              to="#"
+                              className="dropdown-toggle no-arrow"
+                              id="profileDropdown"
+                              data-bs-toggle="dropdown"
+                              aria-expanded="false"
+                            >
+                              <i className="fas fa-user-circle fa-2x"></i>
+                            </Link>
+                            {/* Dropdown menu */}
+                            <ul
+                              className="dropdown-menu dropdown-menu-end"
+                              aria-labelledby="profileDropdown"
+                            >
+                              <li>
+                                <Link className="dropdown-item" to="profile">
+                                  <i class="fa-solid fa-user me-1"></i> Profile
+                                </Link>
+                              </li>
+                              <li>
+                                <Link className="dropdown-item" to="#">
+                                  <i class="fa-solid fa-truck-fast me-1"></i>
+                                  Orders
+                                </Link>
+                              </li>
+                              <li>
+                                <Link className="dropdown-item" to="#">
+                                  <i class="fa-solid fa-right-from-bracket me-1"></i>
+                                  Logout
+                                </Link>
+                              </li>
+                              <li>
+                                <Link className="dropdown-item" to="login">
+                                  <i class="fa-solid fa-right-from-bracket me-1"></i>
+                                  Login
+                                </Link>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -181,15 +227,35 @@ export default function Header() {
                     About
                   </Link>
                 </li>
-                <li className="nav-item search-icon">
-                  <a
-                    className="nav-link active"
-                    aria-current="page"
-                    href="#search"
-                  >
-                    <i className="fa-solid fa-magnifying-glass"></i>
-                  </a>
-                </li>
+                <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li className="nav-item search-icon">
+                    <a
+                      className="nav-link active"
+                      aria-current="page"
+                      href="#search"
+                      onClick={handleSearchClick}
+                    >
+                      <i className="fa-solid fa-magnifying-glass"></i>
+                    </a>
+                  </li>
+                </ul>
+
+                {/* Full-Width Search Bar */}
+                {showSearchBar && (
+                  <div className="full-width-search-bar">
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Type to search..."
+                    />
+                    <button
+                      className="btn btn-danger  close-search"
+                      onClick={handleSearchClick}
+                    >
+                      Close
+                    </button>
+                  </div>
+                )}
               </ul>
               <form className="header-btn ms-3">
                 <Link to="contact">
@@ -208,7 +274,6 @@ export default function Header() {
         </div>
       </div>
       <MobileMenu />
-      
     </>
   );
 }

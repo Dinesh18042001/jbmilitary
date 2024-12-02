@@ -102,3 +102,22 @@
       height: 704px !important;
      }
   }
+
+
+
+/* sellercondition-section start  */
+  @media(max-width:991px){
+    .seller-condition-banner-tittle h4{
+        font-size: 32px;
+    }
+  }
+  /* sellercondition-section end  */
+
+  @media(max-width:991px){
+    .absenteecondition-section .absenteecondition-form img{
+        width: 100%;
+    }
+    .absenteecondition-form-info h1{
+      font-size: 20px;
+    }
+  }

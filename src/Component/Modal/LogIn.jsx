@@ -29,7 +29,7 @@ const App = () => {
               Login
             </button>
             <p>or login with social platforms</p>
-            <div className="social-icons">
+            {/* <div className="social-icons">
               <a href="#">
               <i class="fab fa-google"></i>
               </a>
@@ -37,7 +37,7 @@ const App = () => {
               <i class="fab fa-facebook-f"></i>
               </a>
              
-            </div>
+            </div> */}
           </form>
         </div>
 
@@ -61,7 +61,7 @@ const App = () => {
               Register
             </button>
             <p>or register with social platforms</p>
-            <div className="social-icons">
+            {/* <div className="social-icons">
               <a href="#">
               <i class="fab fa-google"></i>
               </a>
@@ -69,7 +69,7 @@ const App = () => {
               <i class="fab fa-facebook-f"></i>
               </a>
              
-            </div>
+            </div> */}
           </form>
         </div>
 

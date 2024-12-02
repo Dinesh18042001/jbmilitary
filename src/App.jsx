@@ -22,12 +22,13 @@ import BuyerCondition from "./Component/TermsAndConditions/BuyerCondition";
 import AbsenteeCondition from "./Component/TermsAndConditions/AbsenteeCondition";
 import Selling from "./Component/Selling/Selling";
 import Login from "./Component/Modal/LogIn";
+import UserProfile from "./Component/UserProfile/UserProfile";
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Layout/>}>
+        <Route path="/" element={<Layout />}>
           <Route index element={<Banner />} />
           <Route path="categories-slider" element={<CategoriesSlider />} />
           <Route path="categories-products" element={<CategoriesProducts />} />
@@ -35,18 +36,23 @@ function App() {
           <Route path="about" element={<About />} />
           <Route path="testimonial" element={<Testimonial />} />
           <Route path="newsletter" element={<Newsletter />} />
-          <Route path="shop" element={<Shop/>} />
-          <Route path="aboutpage" element={<AboutPage/>} />
-          <Route path="solditems" element={<SoldItems/>} />
-          <Route path="contact" element={<Contact/>} />
-          <Route path="customizemedal" element={<CustomizeMadel/>} />
-          <Route path="productdetails" element={<ProductDetails/>}/>
-          <Route path ="upcomingauction" element={<AuctionPage/>}/>
-          <Route path ="seller-terms-conditions" element={<SellerCondition/>}/>
-          <Route path ="buyer-terms-conditions" element={<BuyerCondition/>}/>
-          <Route path ="absentee-phone-bid-form" element={<AbsenteeCondition/>}/>
-        <Route path="selling" element ={<Selling/>}/>
-        <Route path="login" element={<Login/>}/>
+          <Route path="shop" element={<Shop />} />
+          <Route path="aboutpage" element={<AboutPage />} />
+          <Route path="solditems" element={<SoldItems />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="customizemedal" element={<CustomizeMadel />} />
+          <Route path="productdetails" element={<ProductDetails />} />
+          <Route path="upcomingauction" element={<AuctionPage />} />
+          <Route path="seller-terms-conditions" element={<SellerCondition />} />
+          <Route path="buyer-terms-conditions" element={<BuyerCondition />} />
+          <Route path="profile" element={ <UserProfile/>} />
+          
+          <Route
+            path="absentee-phone-bid-form"
+            element={<AbsenteeCondition />}
+          />
+          <Route path="selling" element={<Selling />} />
+          <Route path="login" element={<Login />} />
         </Route>
       </Routes>
     </Router>

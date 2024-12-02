@@ -194,6 +194,33 @@ ul li a {
 }
 
 
+.dropdown-toggle::after {
+  content: unset;
+}
+
+.dropdown-menu.show {
+  display: block;
+  position: absolute !important;
+  right: -314% !important;
+  top: 80% !important;
+}
+
+.dropdown-item i{
+  font-size: 15px !important;
+}
+.dropdown-item{
+  color: #000 !important;
+  padding-left: 20px ;
+}
+.dropdown-item:hover{
+  background: var(--primary-color);
+  color: #fff !important;
+}
+
+.dropdown-item.active, .dropdown-item:active {
+  text-decoration: none;
+  background-color: unset !important;
+}
 /* banner-section start */
 .banner-section .banner-box-1 {
   background: #000;
@@ -2402,7 +2429,192 @@ height: 550px;
   .login_page_wrapper .toggle-panel h1{font-size: 30px; }
 }
 
-
-
-
 /* Login-page-end */
+
+
+/* userprofile-section start */
+.userprofile-section .profile-box{
+  border: 1px solid var(--primary-color);
+  width: 60%;
+  margin:  0 auto;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+
+}
+.userprofile-section .profile-icon img{
+  width: 100px;
+}
+.user-info .user-info-tittle h6{
+  font-weight: 500px;
+}
+.user-info .user-info-tittle i{
+  font-size: 15px;
+}
+
+.profile-btn .change-pass{
+  width: 100%;
+
+}
+.profile-btn .change-pass a {
+  color: #333;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 8px 30px;
+  border-radius: 4px;
+  background-color: #f1f1f1; 
+  display: inline-block; 
+  transition: background-color 0.3s, color 0.3s;
+  background: var(--primary-color);
+  width: 100%;
+  color: #fff;
+  font-weight: 600;
+}
+/* userprofile-section end */
+
+/* sellercondition-section start  */
+
+.sellercondition-section .seller-condition-banner img{
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.sellercondition-section .seller-condition-banner{
+  position: relative;
+}
+.sellercondition-section .seller-condition-banner::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  border: 5px solid rgba(255, 255, 255, 1);
+}
+
+.seller-condition-banner-tittle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 2;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.seller-condition-banner-tittle h4{
+  color: #fff;
+  font-family: var(--secondry-font);
+  font-size: 50px;
+  font-weight: 500;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.sellercondition-info h5{
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.sellercondition-info-tittle h3{
+  font-weight: 600;
+  font-size: 20px;
+}
+.sellercondition-info-tittle ol li{
+  font-weight: 400;
+  font-size: 15px;
+  color: #484747;
+  margin: 10px;
+} 
+.sellercondition-info-tittle p{
+  font-weight: 400;
+  font-size: 15px;
+}
+
+/* sellercondition-section end */
+
+/* absenteecondition-section start */
+.absenteecondition-section .absenteecondition-form img{
+  width: 100%;
+  height: 300px;
+  border: 3px solid var(--primary-color);
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  width: 90%;
+}
+
+.absenteecondition-form-info h1{
+  font-size: 30px;
+  font-weight: 700;
+  font-family: var(--primary-font);
+}
+
+.absenteecondition-form-info p{
+  margin: 0;
+  padding: 0;
+  font-weight: 400px;
+  font-size: 16px;
+}
+.absenteecondition-form-info p a{
+  color: var(--primary-color);
+}
+
+.absenteecondition-form-info-btn a{
+  border: 1px solid var(--primary-color);
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 15px;
+  color: #fff;
+  font-weight: 500;
+  background: var(--primary-color);
+}
+/* absenteecondition-section end */
+
+
+
+
+.full-width-search-bar {
+  position: fixed;
+  top: 23%;
+  left: 1%;
+  width: 98%;
+  background: white;
+  padding: 13px 20px;
+  z-index: 1050;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+}
+.header-scrolled .full-width-search-bar {
+  position: fixed;
+  top: 104% !important;
+  left: 1%;
+  width: 98%;
+  background: white;
+  padding: 13px 20px;
+  z-index: 1050;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+}
+
+.full-width-search-bar input{
+  border: 2px solid var(--primary-color);
+  height: 45px;
+}
+.close-search {
+  margin-left: 10px;
+  background: var(--primary-color) !important;
+  height: 45px;
+  border: none !important;
+}
