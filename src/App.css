@@ -2618,3 +2618,44 @@ height: 550px;
   height: 45px;
   border: none !important;
 }
+
+/* wishlist-section start */
+.wishlist-section .wishlist-page-title span i{
+font-size: 90px;
+color: var(--primary-color);
+}
+.wishlist-section .wishlist-page-title h2{
+   font-weight: 700;
+   font-size: 40px;
+}
+
+@media(max-width:576px){
+  .wishlist-section .wishlist-page-title span i{
+    font-size: 50px;
+  }
+  .wishlist-section .wishlist-page-title h2{
+    font-size: 30px;
+  }
+}
+/* wishlist-section end */
+
+
+/* BackToTop   */
+.btt {
+  position: fixed;
+  bottom: 40px;
+  right: 20px;
+  border: 1px solid #fff;
+  border-radius: 50px;
+  padding: 5px;
+  background-color: var(--primary-color);
+  height: 45px;
+  width: 45px;
+  z-index: 99999;
+}
+
+@media (max-width: 991px) {
+  .btt {
+    display: none ;
+  }
+}

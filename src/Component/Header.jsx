@@ -5,7 +5,7 @@ import MobileMenu from "./MobileMenu";
 import { useState } from "react";
 
 export default function Header() {
-  
+
   const [showSearchBar, setShowSearchBar] = useState(false);
 
   useEffect(() => {
@@ -59,9 +59,9 @@ export default function Header() {
                   <div className="topbar-link">
                     <div className="icon-box-main d-flex gap-4">
                       <div className="icon-box">
-                        <a href="#">
+                        <Link to="wishlist">
                           <i className="fa-regular fa-heart"></i>
-                        </a>
+                        </Link>
                       </div>
                       <div className="icon-box">
                         <a href="#">

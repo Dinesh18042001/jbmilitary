@@ -23,6 +23,7 @@ import AbsenteeCondition from "./Component/TermsAndConditions/AbsenteeCondition"
 import Selling from "./Component/Selling/Selling";
 import Login from "./Component/Modal/LogIn";
 import UserProfile from "./Component/UserProfile/UserProfile";
+import WishlistPage from "./Component/Wishlist/WishlistPage";
 
 function App() {
   return (
@@ -46,6 +47,7 @@ function App() {
           <Route path="seller-terms-conditions" element={<SellerCondition />} />
           <Route path="buyer-terms-conditions" element={<BuyerCondition />} />
           <Route path="profile" element={ <UserProfile/>} />
+          <Route path="wishlist" element={ <WishlistPage/>} />
           
           <Route
             path="absentee-phone-bid-form"
