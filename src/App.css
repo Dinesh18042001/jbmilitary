@@ -25,6 +25,12 @@ a{
 
 }
 
+.modal-open{
+  margin-right: 0 !important;
+  padding-right: 0 !important;
+}
+
+
 @font-face {
   font-family: 'CustomFont';
   src: url('/public/assets/font/cs_regular.ttf') format('truetype');
@@ -2658,4 +2664,215 @@ color: var(--primary-color);
   .btt {
     display: none ;
   }
+}
+
+
+/* addtocart-section start */
+
+.addtocart-section .addtocart-section-payment-box{
+ padding: 10px 20px;
+ background: #fff;
+ box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .2);
+ border-radius: 5px;
+}
+.addtocart-section .addtocart-payment-box{
+  border-bottom: 1px solid #777;
+}
+
+@media(max-width:576px){
+  .addtocart-section .col-lg-5{
+     margin-top: 20px;
+  }
+}
+.addtocart-section .addtocart-payment-box h4{
+  font-weight: 600;
+  font-size: 20px;
+  text-transform: uppercase;
+  color: #878787;
+}
+
+.addtocart-payment-price h6{
+  font-weight: 500;
+  color: #605c5c;
+}
+.addtocart-payment-price p{
+  font-weight: 500;
+  color: #605c5c;
+}
+.total-payment h5{
+  margin: 0;
+}
+
+.total-payment{
+  border-top: 1px dotted #444;
+  border-bottom: 1px dotted #444;
+  padding: 15px 0;
+}
+.total-payment h5{
+ font-weight: 500;
+color: #444;
+font-size: 20px;
+}
+.discount-save p{
+  margin: 0;
+  font-weight: 500;
+  font-size: 16px;
+  color: #4B994E;
+}
+
+.safe-payment-alert {
+  padding: 20px 15px;
+}
+.safe-payment-alert span i{
+  font-size: 30px;
+  color: #878787;
+}
+.safe-payment-alert h5{
+ font-weight: 600;
+ font-size: 14px;
+ color: #878787;
+}
+
+.addtocart-section .card-product-list-box{
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .5);
+  padding: 10px;
+  border-radius: 10px;
+}
+.addtocart-section .card-product-list-box .card-product-list-box-little{
+ padding: 15px;
+ background-color:  #fff;
+ border-radius: 5px;
+ box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .2);
+}
+.addtocart-section .card-product-list-box .card-product-list-box-little h5{
+  font-weight: 600;
+  font-size: 20px;
+  color: #878787;
+  text-transform: uppercase;
+}
+.address-btn a {
+  border: 1px solid var(--primary-color); 
+  padding: 5px 10px;     
+  border-radius: 4px;    
+  text-decoration: none; 
+  color: #000;            
+  transition: all 0.3s ease; 
+}
+
+.address-btn a:hover {
+  background-color: #000;
+  color: #fff;          
+}
+
+
+
+.addtocart-section .card-product-main{
+  background-color:  #fff;
+  margin-top: 15px;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .2);
+}
+.addtocart-section .card-product-main .product-img img{
+  width: 130px;
+  padding: 10px;
+  border-radius: 18px;
+}
+.addtocart-section .name-info a{
+  font-weight: 500;
+  font-size: 15px;
+  color: #444;
+  transition: all 0.3s;
+}
+.addtocart-section .name-info a:hover{
+  color: var(--primary-color);
+}
+.name-info-amount p{
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.name-info-btn .remove-btn a{
+   font-size: 17px;
+}
+
+.card-product-list-scroll-box {
+  height: 350px;
+  overflow-y: auto; 
+  scrollbar-width: thin; 
+  scrollbar-color: #E7AF17 #f0f0f0;
+  scrollbar-width: none; 
+}
+
+@media (max-width: 576px) {
+  .addtocart-section .card-product-main {
+      flex-direction: column;
+  }
+}
+
+
+.card-product-list-box .order-btn a{
+  background: var(--primary-color);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .2);
+  border: none;
+  color: #fff;
+  padding: 10px 30px;
+}
+
+.save-address-btn{
+  background-color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  transition: all 0.3s;
+  
+}
+.save-address-btn:hover{
+  background-color: #000 !important;
+  border: 1px solid var(--primary-color);
+}
+
+
+
+
+
+/* addtocart-section end */
+
+
+
+.custom-input-container {
+  position: relative;
+  margin-top: 1rem;
+}
+
+.custom-input {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  outline: none;
+}
+
+.custom-input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.custom-label {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  background-color: white;
+  padding: 0 5px;
+  color: #6c757d;
+  font-size: 1rem;
+  transition: all 0.2s ease-in-out;
+  pointer-events: none;
+}
+
+.custom-input:focus + .custom-label,
+.custom-input:not(:placeholder-shown) + .custom-label {
+  top: -8px;
+  font-size: 0.8rem;
+  color: #444;
 }

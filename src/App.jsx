@@ -24,6 +24,7 @@ import Selling from "./Component/Selling/Selling";
 import Login from "./Component/Modal/LogIn";
 import UserProfile from "./Component/UserProfile/UserProfile";
 import WishlistPage from "./Component/Wishlist/WishlistPage";
+import AddToCart from "./Component/AddToCart/AddToCart";
 
 function App() {
   return (
@@ -48,6 +49,8 @@ function App() {
           <Route path="buyer-terms-conditions" element={<BuyerCondition />} />
           <Route path="profile" element={ <UserProfile/>} />
           <Route path="wishlist" element={ <WishlistPage/>} />
+          <Route path="card" element={ <AddToCart/>} />
+
           
           <Route
             path="absentee-phone-bid-form"

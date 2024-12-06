@@ -64,9 +64,9 @@ export default function Header() {
                         </Link>
                       </div>
                       <div className="icon-box">
-                        <a href="#">
+                        <Link to="card">
                           <i className="fas fa-cart-plus"></i>
-                        </a>
+                        </Link>
                       </div>
                       <div className="icon-box">
                         <div className="icon-box">
@@ -232,7 +232,6 @@ export default function Header() {
                     <a
                       className="nav-link active"
                       aria-current="page"
-                      href="#search"
                       onClick={handleSearchClick}
                     >
                       <i className="fa-solid fa-magnifying-glass"></i>
