@@ -257,10 +257,10 @@ ul li a {
   color: #fff !important;
 }
 
-.dropdown-item.active, .dropdown-item:active {
+/* .dropdown-item.active, .dropdown-item:active {
   text-decoration: none;
   background-color: unset !important;
-}
+} */
 /* banner-section start */
 .banner-section .banner-box-1 {
   background: #000;

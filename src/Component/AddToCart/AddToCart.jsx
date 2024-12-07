@@ -140,11 +140,17 @@
 
 import React from "react";
 import AddressModal from "../PopupModal/AddressModel";
-import { useSelector } from "react-redux";
+import { useSelector,useDispatch } from "react-redux";
+import { removeFromCart } from "../../redux/cartSlice";
 
 export default function AddToCart() {
+  const dispatch = useDispatch()
   // Retrieve cart items from the Redux store
   const cartitems = useSelector((state) => state.cart.cart);
+
+  const handleremove =(id)=>{
+    dispatch(removeFromCart(id))
+  }
   console.log("Cart Items from Redux store: ", cartitems);
 
   return (
@@ -188,7 +194,7 @@ export default function AddToCart() {
                               <a href="#">Save for later</a>
                             </div>
                             <div className="remove-btn">
-                              <a href="#">Remove</a>
+                              <a onClick={()=>handleremove(product.id)}>Remove</a>
                             </div>
                           </div>
                         </div>
