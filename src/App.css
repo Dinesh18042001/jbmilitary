@@ -166,6 +166,40 @@ ul li a {
   }
 }
 
+.count-box p{
+  color: #fff;
+  background: var(--primary-color);
+  width: 15px;
+  height: 15px;
+  font-size: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  position: absolute;
+  top: -13%;
+  left: 59%;
+  transform: translate(-50% ,-50%);
+  margin: 0;
+}
+
+.like-count-box p{
+  color: #fff;
+  background: var(--primary-color);
+  width: 15px;
+  height: 15px;
+  font-size: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  position: absolute;
+  top: -13%;
+  left: 51%;
+  transform: translate(-50% ,-50%);
+  margin: 0;
+}
+
 
 /* navbar section end */
 

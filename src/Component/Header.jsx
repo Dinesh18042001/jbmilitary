@@ -3,8 +3,11 @@ import { Link } from "react-router-dom";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import MobileMenu from "./MobileMenu";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 export default function Header() {
+
+  const items = useSelector((state) => state.cart.cart);
 
   const [showSearchBar, setShowSearchBar] = useState(false);
 
@@ -58,16 +61,28 @@ export default function Header() {
                   </div>
                   <div className="topbar-link">
                     <div className="icon-box-main d-flex gap-4">
-                      <div className="icon-box">
+                      <div className="like-icon-box position-relative">
                         <Link to="wishlist">
                           <i className="fa-regular fa-heart"></i>
                         </Link>
+
+                        <div className="like-count-box">
+                          <p>0</p>
+                        </div>
+
                       </div>
-                      <div className="icon-box">
+
+
+                      <div className="card-icon-box position-relative">
                         <Link to="card">
                           <i className="fas fa-cart-plus"></i>
                         </Link>
+                        <div className="count-box">
+                          <p>{items.length}</p>
+                        </div>
                       </div>
+
+
                       <div className="icon-box">
                         <div className="icon-box">
                           {/* Dropdown */}

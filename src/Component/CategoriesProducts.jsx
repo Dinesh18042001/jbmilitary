@@ -1,7 +1,9 @@
-
-
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addtoCart } from "../redux/cartSlice";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function CategoriesProducts({ categoryType }) {
   const [categories] = useState([
@@ -24,7 +26,12 @@ export default function CategoriesProducts({ categoryType }) {
     "German",
   ]);
 
-   const products = [
+  const dispatch = useDispatch();
+
+
+
+
+  const products = [
     {
       id: 1,
       name: "8th & 60th Battalion WW1 Australian medal 4750 Leo Charles",
@@ -108,8 +115,8 @@ export default function CategoriesProducts({ categoryType }) {
     },
   ];
 
-   // Filter products based on `categoryType`
-   const filteredProducts = products.filter((product) => {
+  // Filter products based on `categoryType`
+  const filteredProducts = products.filter((product) => {
     if (categoryType === "sold") return product.sold === true;
     if (categoryType === "sale") return product.sold === false;
     return true; // Default: Show all products
@@ -122,6 +129,16 @@ export default function CategoriesProducts({ categoryType }) {
   const toggleAccordion = (index) => {
     setOpenAccordion((prev) => (prev === index ? null : index));
   };
+
+
+//   const hendleadd =(product)=>{
+// dispatch(addtoCart(product));
+//   }
+
+const hendleadd = (product) => {
+  dispatch(addtoCart(product)); // Assuming you have the `dispatch` from Redux
+  toast.success(`Product has been added to your cart!`);
+};
 
   return (
     <div className="categoriesproducts-section mb-5 mt-5">
@@ -139,14 +156,19 @@ export default function CategoriesProducts({ categoryType }) {
                   {index === 2 || index === 8 || index === 14 ? (
                     <div className="accordion accordion-flush">
                       <div className="accordion-item">
-                        <h2 className="accordion-header" id={`flush-heading-${index}`}>
+                        <h2
+                          className="accordion-header"
+                          id={`flush-heading-${index}`}
+                        >
                           <button
                             className={`accordion-button categories-item-link p-0 ${
                               openAccordion === index ? "" : "collapsed"
                             }`}
                             type="button"
                             onClick={() => toggleAccordion(index)}
-                            aria-expanded={openAccordion === index ? "true" : "false"}
+                            aria-expanded={
+                              openAccordion === index ? "true" : "false"
+                            }
                             aria-controls={`flush-collapse-${index}`}
                           >
                             <h6>{category}</h6>
@@ -154,7 +176,9 @@ export default function CategoriesProducts({ categoryType }) {
                         </h2>
                         <div
                           id={`flush-collapse-${index}`}
-                          className={`accordion-collapse collapse ${openAccordion === index ? "show" : ""}`}
+                          className={`accordion-collapse collapse ${
+                            openAccordion === index ? "show" : ""
+                          }`}
                           aria-labelledby={`flush-heading-${index}`}
                         >
                           <div className="accordion-body">
@@ -198,63 +222,72 @@ export default function CategoriesProducts({ categoryType }) {
 
             <div className="product_main">
               <div className="product_card">
-              <div className="row gy-4 pt-3">
-  {filteredProducts.length > 0 ? (
-    filteredProducts.map((product) => (
-      <div key={product.id} className="col-lg-4 col-xl-4 col-md-6">
-        <Link to="/productdetails" className="product_carbx-link">
-          <div className="product_carbx">
-            <div className="product_img position-relative">
-              <img src={product.image} alt={product.name} />
-              <div className="overlap_content">
-                {product.sold && (
-                  <div className="btn_sec">
-                    <a href="#">Sold</a>
-                  </div>
-                )}
-                <div className="icon_sec">
-                  <a href="#">
-                    <i className="far fa-heart"></i>
-                  </a>
-                  <a href="#">
-                    <i className="fas fa-shopping-cart"></i>
-                  </a>
+                <div className="row gy-4 pt-3">
+                  {filteredProducts.length > 0 ? (
+                    filteredProducts.map((product) => (
+                      <div
+                        key={product.id}
+                        className="col-lg-4 col-xl-4 col-md-6"
+                      >
+                        <Link
+                          // to="/productdetails"
+                          className="product_carbx-link"
+                        >
+                          <div className="product_carbx">
+                            <div className="product_img position-relative">
+                              <img src={product.image} alt={product.name} />
+                              <div className="overlap_content">
+                                {product.sold && (
+                                  <div className="btn_sec">
+                                    <a href="#">Sold</a>
+                                  </div>
+                                )}
+                                <div className="icon_sec">
+                                  <a href="#">
+                                    <i className="far fa-heart"></i>
+                                  </a>
+                                  <a onClick={() =>hendleadd(product)} >
+                                    <i className="fas fa-shopping-cart"></i>
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                            <div className="content_card">
+                              <p>{product.name}</p>
+                            </div>
+                            <div className="price">
+                              <span>{product.price}</span>
+                              <span>
+                                <del>{product.discountedPrice}</del>
+                              </span>
+                            </div>
+                            <div className="rating">
+                              <div className="start_bx">
+                                {Array(product.rating)
+                                  .fill()
+                                  .map((_, i) => (
+                                    <i key={i} className="fas fa-star"></i>
+                                  ))}
+                              </div>
+                              <span>(55)</span>
+                            </div>
+                          </div>
+                        </Link>
+                      </div>
+                    ))
+                  ) : (
+                    <p>No sold products available.</p>
+                  )}
                 </div>
-              </div>
-            </div>
-            <div className="content_card">
-              <p>{product.name}</p>
-            </div>
-            <div className="price">
-              <span>{product.price}</span>
-              <span>
-                <del>{product.discountedPrice}</del>
-              </span>
-            </div>
-            <div className="rating">
-              <div className="start_bx">
-                {Array(product.rating)
-                  .fill()
-                  .map((_, i) => (
-                    <i key={i} className="fas fa-star"></i>
-                  ))}
-              </div>
-              <span>(55)</span>
-            </div>
-          </div>
-        </Link>
-      </div>
-    ))
-  ) : (
-    <p>No sold products available.</p>
-  )}
-</div>
-
               </div>
             </div>
           </div>
         </div>
       </div>
+      <ToastContainer
+      style={{ marginTop: "75px" }} // Add extra space from the top
+    />
+
     </div>
   );
 }
