@@ -51,6 +51,13 @@ export default function MobileMenu() {
             </h2>
           </div>
 
+          {/* Wishlist */}
+          <div className="accordion-item">
+            <h2 className="accordion-header" id="headingAbout">
+              <Link to="/wishlist" className="accordion-button accordion-button-2" onClick={hideOffcanvas}>Wishlist</Link>
+            </h2>
+          </div>
+
           {/* Medals - Accordion Section (Dropdown) */}
           <div className="accordion-item">
             <h2 className="accordion-header" id="flush-headingmedals">
@@ -146,6 +153,7 @@ export default function MobileMenu() {
               <Link to="/aboutpage" className="accordion-button accordion-button-2" onClick={hideOffcanvas}>About</Link>
             </h2>
           </div>
+          
 
           {/* Contact */}
           <div className="accordion-item">
