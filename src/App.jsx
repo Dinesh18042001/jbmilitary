@@ -48,11 +48,10 @@ function App() {
           <Route path="upcomingauction" element={<AuctionPage />} />
           <Route path="seller-terms-conditions" element={<SellerCondition />} />
           <Route path="buyer-terms-conditions" element={<BuyerCondition />} />
-          <Route path="profile" element={ <UserProfile/>} />
-          <Route path="wishlist" element={ <WishlistPage/>} />
-          <Route path="card" element={ <AddToCart/>} />
+          <Route path="profile" element={<UserProfile />} />
+          <Route path="wishlist" element={<WishlistPage />} />
+          <Route path="card" element={<AddToCart />} />
 
-          
           <Route
             path="absentee-phone-bid-form"
             element={<AbsenteeCondition />}

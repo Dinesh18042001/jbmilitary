@@ -6,7 +6,6 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 
 export default function Header() {
-
   const items = useSelector((state) => state.cart.cart);
 
   const [showSearchBar, setShowSearchBar] = useState(false);
@@ -69,9 +68,7 @@ export default function Header() {
                         <div className="like-count-box">
                           <p>0</p>
                         </div>
-
                       </div>
-
 
                       <div className="card-icon-box position-relative">
                         <Link to="card">
@@ -81,7 +78,6 @@ export default function Header() {
                           <p>{items.length}</p>
                         </div>
                       </div>
-
 
                       <div className="icon-box">
                         <div className="icon-box">
@@ -184,26 +180,54 @@ export default function Header() {
                     Shop
                   </Link>
                 </li>
-                <li className="nav-item dropdown">
+                <li class="nav-item dropdown">
                   <a
-                    className="nav-link dropdown-toggle"
+                    class="nav-link dropdown-toggle"
                     href="#"
-                    id="navbarDropdown"
+                    id="mobileServicesDropdown"
                     role="button"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
-                    Medals
+                    Medals <i class="fa-solid fa-caret-down"></i>
                   </a>
-                  <ul
-                    className="dropdown-menu"
-                    aria-labelledby="navbarDropdown"
-                  >
-                    <li>
-                      <Link className="dropdown-item" to="/customizemedal">
-                        Customize Medal
-                      </Link>
-                    </li>
+                  <ul class="drop_down">
+                    <Link className="dropdown-item mb-2" to="/customizemedal">
+                      Customize Medal
+                    </Link>
+                    <Link className="dropdown-item mb-2" to="#">
+                    Boer War and WW1
+                    </Link>
+                    <Link className="dropdown-item mb-2" to="#">
+                    WW2
+                    </Link>
+                    <Link className="dropdown-item mb-2" to="#">
+                    Korea
+                    </Link>
+                    <Link className="dropdown-item mb-2" to="#">
+                    Malaysia
+                    </Link>
+                    <Link className="dropdown-item mb-2" to="#">
+                    Vietnam
+                    </Link>
+                    <Link className="dropdown-item mb-2" to="#">
+                    Afghanistan & Iraq
+                    </Link>
+                    <Link className="dropdown-item mb-2" to="#">
+                    Afghanistan & Iraq
+                    </Link>
+                    <Link className="dropdown-item mb-2" to="#">
+                    Current Military
+                    </Link>
+                    <Link className="dropdown-item mb-2" to="#">
+                    Police & Emergency Services
+                    </Link>
+                    <Link className="dropdown-item mb-2" to="#">
+                    Medal Accessories
+                    </Link>
+                    <Link className="dropdown-item mb-2" to="#">
+                    Customize your Medal
+                    </Link>
                   </ul>
                 </li>
                 <li className="nav-item">
