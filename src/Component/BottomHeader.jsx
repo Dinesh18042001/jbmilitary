@@ -20,7 +20,7 @@
 //                     <div className="link">
 //                         <Link to="shop"><span><img src="./assets/icon/shopping-bag.png" alt="" /></span> Shop </Link>
 //                     </div>
-                   
+
 //                     <div className="link">
 //                         <a href="#"><span><img src="./assets/icon/loupe.png" alt="" /></span> Search </a>
 //                     </div>
@@ -38,9 +38,8 @@
 //   )
 // }
 
-
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function BottomHeader() {
   const [showSearchBar, setShowSearchBar] = useState(false);
@@ -79,13 +78,19 @@ export default function BottomHeader() {
                   Search
                 </a>
               </div>
-              <div className="link">
+              <div className="link position-relative">
                 <Link to="card">
                   <span>
-                    <img src="./assets/icon/shopping-cart.png" alt="Cart Icon" />
+                    <img
+                      src="./assets/icon/shopping-cart.png"
+                      alt="Cart Icon"
+                    />
                   </span>
                   Cart
                 </Link>
+                <div className="count-box1">
+                  <p>O</p>
+                </div>
               </div>
               <div className="link">
                 <Link to="upcomingauction">

@@ -2972,4 +2972,21 @@ font-size: 20px;
   color: #444;
 }
 
+ .count-box1 p{
+ background: var(--primary-color) !important;
+ border-radius: 50%;
+ width: 18px;
+ height: 18px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ color: #fff;
+ font-size: 12px;
+}
 
+.count-box1 {
+  position: absolute;
+  top: 10px;
+  right: -11px;
+  transform: translate(-50%, -50%);
+}
