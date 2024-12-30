@@ -1,48 +1,10 @@
-// import React from 'react'
-// import { Link } from 'react-router-dom'
-
-// export default function BottomHeader() {
-
-//      const [showSearchBar, setShowSearchBar] = useState(false);
-
-//      const handleSearchClick = () => {
-//         setShowSearchBar(!showSearchBar);
-//       };
-//   return (
-//     <>
-//     <section className='bottom_footer_wrapper'>
-//         <div className="container">
-//             <div className="row">
-//                 <div className="bottom_menu">
-//                     <div className="link">
-//                         <Link to="/"><span><img src="./assets/icon/homeb.png" alt="" /></span> Home </Link>
-//                     </div>
-//                     <div className="link">
-//                         <Link to="shop"><span><img src="./assets/icon/shopping-bag.png" alt="" /></span> Shop </Link>
-//                     </div>
-
-//                     <div className="link">
-//                         <a href="#"><span><img src="./assets/icon/loupe.png" alt="" /></span> Search </a>
-//                     </div>
-//                     <div className="link">
-//                         <Link to="card"><span><img src="./assets/icon/shopping-cart.png" alt="" /></span> Cart </Link>
-//                     </div>
-//                     <div className="link">
-//                         <Link href="upcomingauction"><span><img src="./assets/icon/auction.png" alt="" /></span> Auction </Link>
-//                     </div>
-//                 </div>
-//             </div>
-//         </div>
-//     </section>
-//     </>
-//   )
-// }
-
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 export default function BottomHeader() {
   const [showSearchBar, setShowSearchBar] = useState(false);
+  const items = useSelector((state) => state.cart.cart);
 
   const handleSearchClick = () => {
     setShowSearchBar(!showSearchBar);
@@ -89,7 +51,7 @@ export default function BottomHeader() {
                   Cart
                 </Link>
                 <div className="count-box1">
-                  <p>O</p>
+                  <p>{items.length}</p>
                 </div>
               </div>
               <div className="link">
