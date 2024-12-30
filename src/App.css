@@ -2675,7 +2675,7 @@ height: 550px;
 
 @media(max-width:991px){
   .full-width-search-bar{
-    top: 16%;
+    top: 8%;
     left: 1%;
   }
 }
@@ -2891,6 +2891,13 @@ font-size: 20px;
   scrollbar-color: #E7AF17 #f0f0f0;
   scrollbar-width: none; 
 }
+
+@media (max-width: 991px) {
+  .card-product-list-scroll-box  {
+    height: 500px;
+  }
+}
+
 
 @media (max-width: 576px) {
   .addtocart-section .card-product-main {

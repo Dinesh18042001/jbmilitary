@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 
 export default function Header() {
   const items = useSelector((state) => state.cart.cart);
+  const wishlistItems = useSelector((state) => state.wishlist.wishlist);
 
   const [showSearchBar, setShowSearchBar] = useState(false);
 
@@ -66,7 +67,7 @@ export default function Header() {
                         </Link>
 
                         <div className="like-count-box">
-                          <p>0</p>
+                        <p>{wishlistItems.length}</p>
                         </div>
                       </div>
 

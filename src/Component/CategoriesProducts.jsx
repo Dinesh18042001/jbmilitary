@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addtoCart } from "../redux/cartSlice";
+import { addToWishlist } from "../redux/wishlistSlice";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -27,8 +28,6 @@ export default function CategoriesProducts({ categoryType }) {
   ]);
 
   const dispatch = useDispatch();
-
-
 
 
   const products = [
@@ -115,30 +114,27 @@ export default function CategoriesProducts({ categoryType }) {
     },
   ];
 
-  // Filter products based on `categoryType`
   const filteredProducts = products.filter((product) => {
     if (categoryType === "sold") return product.sold === true;
     if (categoryType === "sale") return product.sold === false;
-    return true; // Default: Show all products
+    return true;
   });
 
-  // State to manage open/close status for each accordion item
   const [openAccordion, setOpenAccordion] = useState(null);
 
-  // Toggle function to open/close accordion items
   const toggleAccordion = (index) => {
     setOpenAccordion((prev) => (prev === index ? null : index));
   };
 
+  const handleAddToCart = (product) => {
+    dispatch(addtoCart(product));
+    toast.success(`Product added to your cart!`);
+  };
 
-//   const hendleadd =(product)=>{
-// dispatch(addtoCart(product));
-//   }
-
-const hendleadd = (product) => {
-  dispatch(addtoCart(product)); // Assuming you have the `dispatch` from Redux
-  toast.success(`Product has been added to your cart!`);
-};
+  const handleAddToWishlist = (product) => {
+    dispatch(addToWishlist(product));
+    toast.info(`Product added to your wishlist!`);
+  };
 
   return (
     <div className="categoriesproducts-section mb-5 mt-5">
@@ -152,23 +148,17 @@ const hendleadd = (product) => {
               </div>
               {categories.map((category, index) => (
                 <div key={index} className="categories-item-link">
-                  {/* Conditional accordion for specific categories */}
                   {index === 2 || index === 8 || index === 14 ? (
                     <div className="accordion accordion-flush">
                       <div className="accordion-item">
-                        <h2
-                          className="accordion-header"
-                          id={`flush-heading-${index}`}
-                        >
+                        <h2 className="accordion-header" id={`flush-heading-${index}`}>
                           <button
                             className={`accordion-button categories-item-link p-0 ${
                               openAccordion === index ? "" : "collapsed"
                             }`}
                             type="button"
                             onClick={() => toggleAccordion(index)}
-                            aria-expanded={
-                              openAccordion === index ? "true" : "false"
-                            }
+                            aria-expanded={openAccordion === index ? "true" : "false"}
                             aria-controls={`flush-collapse-${index}`}
                           >
                             <h6>{category}</h6>
@@ -201,23 +191,6 @@ const hendleadd = (product) => {
               <div className="heading_bx">
                 <h3>Categories Products</h3>
               </div>
-              <div className="filter_bx d-flex justify-content-between align-items-center">
-                <div className="select_bx">
-                  <select className="form-select" aria-label="Price range">
-                    <option selected>1 - 600</option>
-                    <option value="1">2 - 600</option>
-                    <option value="2">3 - 600</option>
-                  </select>
-                </div>
-                <div className="select_bx">
-                  <select className="form-select" aria-label="Sort by rating">
-                    <option selected>Sort by average rating</option>
-                    <option value="1">Rating 4</option>
-                    <option value="2">Rating 5</option>
-                    <option value="3">Rating 3</option>
-                  </select>
-                </div>
-              </div>
             </div>
 
             <div className="product_main">
@@ -225,58 +198,40 @@ const hendleadd = (product) => {
                 <div className="row gy-4 pt-3">
                   {filteredProducts.length > 0 ? (
                     filteredProducts.map((product) => (
-                      <div
-                        key={product.id}
-                        className="col-lg-4 col-xl-4 col-md-6"
-                      >
-                        <Link
-                          // to="/productdetails"
-                          className="product_carbx-link"
-                        >
-                          <div className="product_carbx">
-                            <div className="product_img position-relative">
-                              <img src={product.image} alt={product.name} />
-                              <div className="overlap_content">
-                                {product.sold && (
-                                  <div className="btn_sec">
-                                    <a href="#">Sold</a>
-                                  </div>
-                                )}
-                                <div className="icon_sec">
-                                  <a href="#">
-                                    <i className="far fa-heart"></i>
-                                  </a>
-                                  <a onClick={() =>hendleadd(product)} >
-                                    <i className="fas fa-shopping-cart"></i>
-                                  </a>
+                      <div key={product.id} className="col-lg-4 col-md-6">
+                        <div className="product_carbx">
+                          <div className="product_img position-relative">
+                            <img src={product.image} alt={product.name} />
+                            <div className="overlap_content">
+                              {product.sold && (
+                                <div className="btn_sec">
+                                  <a href="#">Sold</a>
                                 </div>
+                              )}
+                              <div className="icon_sec">
+                                <a onClick={() => handleAddToWishlist(product)}>
+                                  <i className="far fa-heart"></i>
+                                </a>
+                                <a onClick={() => handleAddToCart(product)}>
+                                  <i className="fas fa-shopping-cart"></i>
+                                </a>
                               </div>
-                            </div>
-                            <div className="content_card">
-                              <p>{product.name}</p>
-                            </div>
-                            <div className="price">
-                              <span>{product.price}</span>
-                              <span>
-                                <del>{product.discountedPrice}</del>
-                              </span>
-                            </div>
-                            <div className="rating">
-                              <div className="start_bx">
-                                {Array(product.rating)
-                                  .fill()
-                                  .map((_, i) => (
-                                    <i key={i} className="fas fa-star"></i>
-                                  ))}
-                              </div>
-                              <span>(55)</span>
                             </div>
                           </div>
-                        </Link>
+                          <div className="content_card">
+                            <Link to="/productdetails"><p>{product.name}</p></Link>
+                          </div>
+                          <div className="price">
+                            <span>{product.price}</span>
+                            <span>
+                              <del>{product.discountedPrice}</del>
+                            </span>
+                          </div>
+                        </div>
                       </div>
                     ))
                   ) : (
-                    <p>No sold products available.</p>
+                    <p>No products available.</p>
                   )}
                 </div>
               </div>
@@ -284,10 +239,7 @@ const hendleadd = (product) => {
           </div>
         </div>
       </div>
-      <ToastContainer
-      style={{ marginTop: "75px" }} // Add extra space from the top
-    />
-
+      <ToastContainer style={{ marginTop: "75px" }} />
     </div>
   );
 }
