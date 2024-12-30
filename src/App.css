@@ -2679,6 +2679,12 @@ height: 550px;
     left: 1%;
   }
 }
+@media(max-width:576px){
+  .full-width-search-bar{
+    top: 12%;
+    left: 1%;
+  }
+}
 
 .header-scrolled .full-width-search-bar {
   position: fixed;
