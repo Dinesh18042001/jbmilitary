@@ -2990,3 +2990,44 @@ font-size: 20px;
   right: -11px;
   transform: translate(-50%, -50%);
 }
+
+
+
+/* Ensure labels stay in place even when the input is invalid */
+.custom-input-container {
+  position: relative;
+}
+
+.custom-input-container .custom-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.3s ease;
+}
+
+.custom-input-container .custom-input:focus + .custom-label,
+.custom-input-container .custom-input:not(:placeholder-shown) + .custom-label {
+  top: -1px;
+  left: 8px;
+  font-size: 13px;
+  color: #495057;
+}
+
+.custom-input.is-invalid {
+  border-color: #dc3545; /* Red border for invalid input */
+}
+
+.custom-input.is-valid {
+  border-color: #28a745; /* Green border for valid input */
+}
+
+/* Styling for invalid feedback message */
+.invalid-feedback {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  font-size: 12px;
+  color: #dc3545; /* Red color for validation error message */
+  margin-top: 5px;
+}
+

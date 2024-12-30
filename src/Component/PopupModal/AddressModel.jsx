@@ -16,50 +16,50 @@
 //               <form>
 //                 <div className="row">
 //                   {/* Country */}
-//                   <div className="col-lg-6">
-//                     <div className="mb-3">
-//                       <label htmlFor="countryInput" className="form-label">Country</label>
-//                       <input type="text" className="form-control" id="countryInput" />
+//                   <div className="col-lg-6 mb-3">
+//                     <div className="custom-input-container">
+//                       <input type="text" id="countryInput" className="custom-input" />
+//                       <label htmlFor="countryInput" className="custom-label">Country</label>
 //                     </div>
 //                   </div>
 
 //                   {/* Street Address */}
-//                   <div className="col-lg-6">
-//                     <div className="mb-3">
-//                       <label htmlFor="addressInput" className="form-label">Street Address</label>
-//                       <input type="text" className="form-control" id="addressInput" />
+//                   <div className="col-lg-6 mb-3">
+//                     <div className="custom-input-container">
+//                       <input type="text" id="addressInput" className="custom-input" />
+//                       <label htmlFor="addressInput" className="custom-label">Street Address</label>
 //                     </div>
 //                   </div>
 
 //                   {/* Suburb */}
-//                   <div className="col-lg-6">
-//                     <div className="mb-3">
-//                       <label htmlFor="suburbInput" className="form-label">Suburb</label>
-//                       <input type="text" className="form-control" id="suburbInput" />
+//                   <div className="col-lg-6 mb-3">
+//                     <div className="custom-input-container">
+//                       <input type="text" id="suburbInput" className="custom-input" />
+//                       <label htmlFor="suburbInput" className="custom-label">Suburb</label>
 //                     </div>
 //                   </div>
 
 //                   {/* State */}
-//                   <div className="col-lg-6">
-//                     <div className="mb-3">
-//                       <label htmlFor="stateInput" className="form-label">State</label>
-//                       <input type="text" className="form-control" id="stateInput" />
+//                   <div className="col-lg-6 mb-3">
+//                     <div className="custom-input-container">
+//                       <input type="text" id="stateInput" className="custom-input" />
+//                       <label htmlFor="stateInput" className="custom-label">State</label>
 //                     </div>
 //                   </div>
 
 //                   {/* Pincode */}
-//                   <div className="col-lg-6">
-//                     <div className="mb-3">
-//                       <label htmlFor="pincodeInput" className="form-label">Pincode</label>
-//                       <input type="text" className="form-control" id="pincodeInput" />
+//                   <div className="col-lg-6 mb-3">
+//                     <div className="custom-input-container">
+//                       <input type="text" id="pincodeInput" className="custom-input" />
+//                       <label htmlFor="pincodeInput" className="custom-label">Pincode</label>
 //                     </div>
 //                   </div>
 
 //                   {/* Phone Number */}
-//                   <div className="col-lg-6">
-//                     <div className="mb-3">
-//                       <label htmlFor="phoneInput" className="form-label">Phone Number</label>
-//                       <input type="text" className="form-control" id="phoneInput" />
+//                   <div className="col-lg-6 mb-3">
+//                     <div className="custom-input-container">
+//                       <input type="text" id="phoneInput" className="custom-input" />
+//                       <label htmlFor="phoneInput" className="custom-label">Phone Number</label>
 //                     </div>
 //                   </div>
 //                 </div>
@@ -77,9 +77,77 @@
 // }
 
 
-import React from 'react';
+
+import React, { useEffect } from 'react';
+import $ from 'jquery'; // Importing jQuery
+import 'jquery-validation'; // Importing jQuery Validation Plugin
 
 export default function AddressModal() {
+  useEffect(() => {
+    // Initialize jQuery validation when the component mounts
+    $('#addressForm').validate({
+      rules: {
+        country: {
+          required: true,
+        },
+        address: {
+          required: true,
+        },
+        suburb: {
+          required: true,
+        },
+        state: {
+          required: true,
+        },
+        pincode: {
+          required: true,
+          digits: true,
+          minlength: 6,
+          maxlength: 6,
+        },
+        phone: {
+          required: true,
+          digits: true,
+          minlength: 10,
+          maxlength: 15,
+        },
+      },
+      messages: {
+        country: {
+          required: "Please enter your country",
+        },
+        address: {
+          required: "Please enter your street address",
+        },
+        suburb: {
+          required: "Please enter your suburb",
+        },
+        state: {
+          required: "Please enter your state",
+        },
+        pincode: {
+          required: "Please enter your pincode",
+          digits: "Pincode must be numeric",
+          minlength: "Pincode must be 6 digits",
+          maxlength: "Pincode must be 6 digits",
+        },
+        phone: {
+          required: "Please enter your phone number",
+          digits: "Phone number must be numeric",
+          minlength: "Phone number must be at least 10 digits",
+          maxlength: "Phone number cannot be more than 15 digits",
+        },
+      },
+      errorClass: 'is-invalid',
+      validClass: 'is-valid',
+      submitHandler: function (form) {
+        // You can handle the form submission here, e.g., save the address
+        alert("Address saved!");
+        form.reset();
+      },
+    });
+  }, []); // Empty dependency array ensures this runs only once when the component mounts
+
   return (
     <>
       {/* Modal */}
@@ -92,53 +160,53 @@ export default function AddressModal() {
             </div>
             <div className="modal-body">
               {/* Modal content */}
-              <form>
+              <form id="addressForm">
                 <div className="row">
                   {/* Country */}
                   <div className="col-lg-6 mb-3">
                     <div className="custom-input-container">
-                      <input type="text" id="countryInput" className="custom-input" />
-                      <label htmlFor="countryInput" className="custom-label">Country</label>
+                      <input type="text" name="country" className="custom-input" />
+                      <label htmlFor="country" className="custom-label">Country</label>
                     </div>
                   </div>
 
                   {/* Street Address */}
                   <div className="col-lg-6 mb-3">
                     <div className="custom-input-container">
-                      <input type="text" id="addressInput" className="custom-input" />
-                      <label htmlFor="addressInput" className="custom-label">Street Address</label>
+                      <input type="text" name="address" className="custom-input" />
+                      <label htmlFor="address" className="custom-label">Street Address</label>
                     </div>
                   </div>
 
                   {/* Suburb */}
                   <div className="col-lg-6 mb-3">
                     <div className="custom-input-container">
-                      <input type="text" id="suburbInput" className="custom-input" />
-                      <label htmlFor="suburbInput" className="custom-label">Suburb</label>
+                      <input type="text" name="suburb" className="custom-input" />
+                      <label htmlFor="suburb" className="custom-label">Suburb</label>
                     </div>
                   </div>
 
                   {/* State */}
                   <div className="col-lg-6 mb-3">
                     <div className="custom-input-container">
-                      <input type="text" id="stateInput" className="custom-input" />
-                      <label htmlFor="stateInput" className="custom-label">State</label>
+                      <input type="text" name="state" className="custom-input" />
+                      <label htmlFor="state" className="custom-label">State</label>
                     </div>
                   </div>
 
                   {/* Pincode */}
                   <div className="col-lg-6 mb-3">
                     <div className="custom-input-container">
-                      <input type="text" id="pincodeInput" className="custom-input" />
-                      <label htmlFor="pincodeInput" className="custom-label">Pincode</label>
+                      <input type="text" name="pincode" className="custom-input" />
+                      <label htmlFor="pincode" className="custom-label">Pincode</label>
                     </div>
                   </div>
 
                   {/* Phone Number */}
                   <div className="col-lg-6 mb-3">
                     <div className="custom-input-container">
-                      <input type="text" id="phoneInput" className="custom-input" />
-                      <label htmlFor="phoneInput" className="custom-label">Phone Number</label>
+                      <input type="text" name="phone" className="custom-input" />
+                      <label htmlFor="phone" className="custom-label">Phone Number</label>
                     </div>
                   </div>
                 </div>
@@ -146,7 +214,7 @@ export default function AddressModal() {
             </div>
             <div className="modal-footer">
               <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" className="btn btn-primary save-address-btn">Save Address</button>
+              <button type="submit" className="btn btn-primary save-address-btn" form="addressForm">Save Address</button>
             </div>
           </div>
         </div>
