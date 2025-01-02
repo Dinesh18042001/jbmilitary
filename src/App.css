@@ -2372,6 +2372,10 @@ height: 550px;
   font-size: 16px;
   color: #fff;
   font-weight: 600;
+  display: flex ;
+  justify-content: center;
+  align-items: center;
+
 }
 
 .login_page_wrapper .social-icons{
@@ -3031,3 +3035,19 @@ font-size: 20px;
   margin-top: 5px;
 }
 
+
+ /* validation error message start */
+/* Style for validation error messages */
+label.error {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+  display: block;
+}
+
+/* Highlight invalid input fields */
+input.error {
+  border: 1px solid red;
+}
+
+ /* validation error message end */
