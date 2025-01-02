@@ -2375,7 +2375,12 @@ height: 550px;
   display: flex ;
   justify-content: center;
   align-items: center;
+transition: all 0.5s;
+}
 
+.login_page_wrapper .btn:hover{
+background: #000;
+ color: #fff;
 }
 
 .login_page_wrapper .social-icons{
@@ -3051,3 +3056,41 @@ input.error {
 }
 
  /* validation error message end */
+
+
+
+ /* Style the input box to position the eye icon */
+
+.input-box.password-field {
+  position: relative;
+}
+
+.input-box.password-field input {
+  width: 100%;
+  padding-right: 35px;  
+}
+
+.eye-icon {
+  position: absolute;
+  right: 10px;  
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 20px;
+}
+
+
+/* forgot-password-section start */
+.forgot-password-section input{
+  height: 45px;
+  border: 1px solid var(--primary-color) !important;
+}
+.forgot-password-section .forget-pass-btn a{
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  background-color: var(--primary-color);
+  align-items: center;
+  color: #fff;
+}
+/* forgot-password-section end */
